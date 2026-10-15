@@ -1,0 +1,53 @@
+content:
+  - name: journal
+    label: Blog
+    type: collection
+    path: content/posts
+    filename: "{slug}.md"
+    format: yaml-frontmatter
+    view:
+      primary: title
+      sort: date
+      order: desc
+    fields:
+      - name: slug
+        label: URL slug
+        type: string
+        required: true
+        pattern:
+          regex: "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+          message: Use lowercase words separated by hyphens.
+        options:
+          minlength: 3
+          maxlength: 80
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: date
+        label: Publication date
+        type: date
+        required: true
+      - name: description
+        label: Search and article summary
+        type: text
+        required: true
+      - name: category
+        label: Topic
+        type: select
+        options:
+          values:
+            - Hardware security
+            - IoT security
+            - OT / ICS security
+            - Security practice
+      - name: published
+        label: Publish this article
+        type: boolean
+      - name: body
+        label: Article
+        type: rich-text
+        required: true
+        options:
+          format: markdown
+          media: false

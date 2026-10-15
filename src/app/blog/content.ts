@@ -1,0 +1,88 @@
+import { readdir, readFile } from "node:fs/promises";
+import path from "node:path";
+
+export interface JournalPost {
+  body: string;
+  category: string;
+  date: string;
+  description: string;
+  readingTimeMinutes: number;
+  slug: string;
+  title: string;
+}
+
+const postsDirectory = path.join(process.cwd(), "content", "posts");
+const markdownFilePattern = /\.md$/;
+const slugPattern = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
+const frontmatterPattern = /^---\s*\r?\n([\s\S]*?)\r?\n---\s*\r?\n?([\s\S]*)$/;
+const fieldPattern = /^([a-zA-Z][\w-]*):\s*(.*?)\s*$/;
+const quotePattern = /^(\")(.*)\1$|^(')(.*)\3$/;
+const whitespacePattern = /\s+/;
+
+export async function getJournalPosts(): Promise<JournalPost[]> {
+  let filenames: string[];
+  try {
+    filenames = await readdir(postsDirectory);
+  } catch {
+    return [];
+  }
+
+  const posts = await Promise.all(
+    filenames
+      .filter((filename) => markdownFilePattern.test(filename))
+      .map(async (filename) => {
+        const raw = await readFile(path.join(postsDirectory, filename), "utf8");
+        return parsePost(raw, filename.replace(markdownFilePattern, ""));
+      }),
+  );
+
+  return posts
+    .filter((post): post is JournalPost => post !== null)
+    .sort((a, b) => b.date.localeCompare(a.date));
+}
+
+export async function getJournalPost(
+  slug: string,
+): Promise<JournalPost | null> {
+  if (!slugPattern.test(slug)) return null;
+  try {
+    const raw = await readFile(path.join(postsDirectory, `${slug}.md`), "utf8");
+    return parsePost(raw, slug);
+  } catch {
+    return null;
+  }
+}
+
+function parsePost(raw: string, slug: string): JournalPost | null {
+  const match = raw.match(frontmatterPattern);
+  if (!match) return null;
+
+  const fields: Record<string, string> = {};
+  for (const line of match[1].split(/\r?\n/)) {
+    const field = line.match(fieldPattern);
+    if (!field) continue;
+    const value = field[2].match(quotePattern);
+    fields[field[1]] = value?.[2] ?? value?.[4] ?? field[2];
+  }
+
+  if (
+    fields.published !== "true" ||
+    fields.slug !== slug ||
+    !fields.title ||
+    !fields.date ||
+    !fields.description
+  )
+    return null;
+
+  const body = match[2].trim();
+  const wordCount = body.split(whitespacePattern).filter(Boolean).length;
+  return {
+    slug,
+    title: fields.title,
+    date: fields.date,
+    description: fields.description,
+    category: fields.category || "Security",
+    body,
+    readingTimeMinutes: Math.max(1, Math.ceil(wordCount / 220)),
+  };
+}
