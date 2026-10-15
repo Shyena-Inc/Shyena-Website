@@ -114,10 +114,6 @@ export function SiteFooter() {
         <div className="mx-auto flex max-w-7xl flex-col gap-3 px-4 py-5 text-xs text-muted-foreground lg:px-8">
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
             <span>© {new Date().getFullYear()} {siteConfig.name}</span>
-            <div className="flex flex-wrap gap-x-5 gap-y-2">
-              <span>Registration no. {siteConfig.registration}</span>
-              <span>PAN {siteConfig.pan}</span>
-            </div>
             <div className="flex gap-4">
               <Link href="/privacy" className="hover:text-foreground">
                 Privacy

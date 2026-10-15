@@ -25,6 +25,7 @@ import { CtaVortex } from "@/components/company/cta-vortex";
 import { GlobalGlobe } from "@/components/company/global-globe";
 import { BentoGrid } from "@/components/velora/bento-grid";
 import { BlurFade } from "@/components/velora/blur-fade";
+import { BackgroundBeams } from "@/components/velora/background-beams";
 import { SpotlightCard } from "@/components/velora/spotlight-card";
 import { Marquee } from "@/components/velora/marquee";
 import { BackgroundBoxes } from "@/components/velora/background-boxes";
@@ -392,20 +393,51 @@ export default function HomePage() {
             </div>
           </BlurFade>
           <BlurFade direction="left" delay={0.1}>
-            <div className="grid gap-4 sm:grid-cols-2">
-              {[
-                ["Registered company", siteConfig.registration],
-                ["PAN", siteConfig.pan],
-                ["Location", "Lalitpur, Nepal"],
-                ["Email", siteConfig.email],
-              ].map(([label, value]) => (
-                <div key={label} className="rounded-none border bg-card p-5">
-                  <p className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
-                    {label}
-                  </p>
-                  <p className="mt-2 break-words font-medium">{value}</p>
-                </div>
-              ))}
+            <div className="grid items-stretch gap-4 sm:grid-cols-2">
+              <div className="rounded-none border bg-card p-5">
+                <p className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
+                  Location
+                </p>
+                <p className="mt-2 font-medium">Lalitpur, Nepal</p>
+              </div>
+              <div className="rounded-none border bg-card p-5">
+                <p className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
+                  Email
+                </p>
+                <p className="mt-2 break-words font-medium">
+                  {siteConfig.email}
+                </p>
+              </div>
+            </div>
+          </BlurFade>
+        </div>
+      </section>
+
+      <section className="relative isolate overflow-hidden bg-zinc-950 py-20 text-white md:py-28">
+        <BackgroundBeams count={7} className="opacity-80" />
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_40%,transparent,rgba(0,0,0,0.55))]"
+        />
+        <div className="relative mx-auto max-w-7xl px-4 lg:px-8">
+          <BlurFade>
+            <div className="max-w-3xl">
+              <h2 className="text-4xl font-semibold leading-[1.05] tracking-[-0.03em] text-balance sm:text-5xl lg:text-6xl">
+                Do you know what is exposed in your systems?
+              </h2>
+              <p className="mt-5 max-w-xl text-base leading-7 text-white/70 sm:text-lg">
+                Hardware, firmware, connected devices, and OT environments
+                can be assessed within an agreed scope.
+              </p>
+              <Button
+                asChild
+                size="lg"
+                className="mt-8 h-12 rounded-none bg-white px-6 text-zinc-950 hover:bg-white/90"
+              >
+                <Link href="/#services">
+                  View service lines <ArrowRightIcon className="size-4" />
+                </Link>
+              </Button>
             </div>
           </BlurFade>
         </div>
