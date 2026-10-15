@@ -8,9 +8,15 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 
 <!-- END:nextjs-agent-rules -->
 
+## Mandatory skill use (every prompt)
+
+- Before every task, read `./taste-SKILL.md` and follow it. No exceptions for frontend, copy, or layout work.
+- Declare a one-line Design Read first (page kind, audience, vibe, design direction) per the skill.
+- Run the skill's Final Pre-Flight Check before finishing. Zero em-dashes anywhere visible.
+
 ## Shyena site design and trust
 
-- For frontend design and implementation, read and follow `../taste-SKILL.md` before changing the interface.
+- For frontend design and implementation, read and follow `./taste-SKILL.md` before changing the interface.
 - Use a corporate B2B visual language: clear hierarchy, square edges, theme-aware contrast, responsive layouts, and restrained motion.
 - Keep public copy evidence-based. Do not invent clients, testimonials, customer counts, offices, certifications, delivery metrics, or product capabilities. Label illustrative diagrams and sample data clearly.
 - Verify light and dark themes, keyboard access, reduced-motion behavior, and narrow-screen layouts for interactive components.

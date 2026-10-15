@@ -33,13 +33,6 @@ const groups = [
       { text: "All projects", href: "/projects" },
     ],
   },
-  {
-    title: "Policies",
-    links: [
-      { text: "Privacy notice (review draft)", href: "/privacy" },
-      { text: "Terms of use (review draft)", href: "/terms" },
-    ],
-  },
 ] as const;
 
 const headingId = (title: string) =>
@@ -48,7 +41,7 @@ const headingId = (title: string) =>
 export function SiteFooter() {
   return (
     <footer className="border-t border-border bg-muted/30 text-foreground">
-      <div className="mx-auto grid max-w-7xl grid-cols-2 gap-x-8 gap-y-10 px-4 py-12 md:grid-cols-6 md:py-16 lg:grid-cols-6 lg:px-8">
+      <div className="mx-auto grid max-w-7xl grid-cols-2 gap-x-8 gap-y-10 px-4 py-12 md:grid-cols-5 md:py-16 lg:grid-cols-5 lg:px-8">
         <div className="col-span-2 md:col-span-2">
           <Link
             href="/"

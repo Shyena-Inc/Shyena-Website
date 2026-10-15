@@ -14,7 +14,6 @@ import { SiteHeader } from "@/components/site-header";
 import { PageHeader } from "@/components/page-header";
 import { BlurFade } from "@/components/velora/blur-fade";
 import { WavyBackground } from "@/components/velora/wavy-background";
-import { WobbleCard } from "@/components/velora/wobble-card";
 import { SpotlightCard } from "@/components/velora/spotlight-card";
 import { pageMetadata, JsonLd, publisher } from "@/lib/seo";
 import { siteConfig } from "@/lib/site-config";
@@ -85,8 +84,8 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="pb-20 md:pb-28">
-        <div className="mx-auto grid max-w-7xl gap-12 px-4 md:grid-cols-[1.1fr_.9fr] lg:gap-20 lg:px-8">
+      <section className="py-20 md:py-28">
+        <div className="mx-auto grid max-w-7xl items-start gap-12 px-4 lg:grid-cols-[1.1fr_.9fr] lg:gap-20 lg:px-8">
           <BlurFade direction="right">
             <div className="max-w-2xl space-y-5 text-muted-foreground">
               <p className="text-sm font-medium text-primary">Our work</p>
@@ -111,35 +110,36 @@ export default function AboutPage() {
               </Button>
             </div>
           </BlurFade>
-          <div className="grid gap-4 sm:grid-cols-2">
+          <div className="grid items-stretch gap-4 sm:grid-cols-2">
             {focusAreas.map((area, index) => (
-              <BlurFade key={area.title} delay={index * 0.06}>
-                {area.title === "Operational technology" ? (
-                  <WobbleCard
-                    strength={4}
-                    grain={false}
-                    className="h-full border border-primary/20 bg-primary text-primary-foreground shadow-none"
-                    contentClassName="min-h-44 p-5"
+              <BlurFade key={area.title} delay={index * 0.06} className="h-full">
+                <SpotlightCard
+                  className={`h-full rounded-none p-5 ${
+                    area.title === "Operational technology"
+                      ? "border-primary/20 bg-primary text-primary-foreground"
+                      : ""
+                  }`}
+                >
+                  <span
+                    className={`mb-4 grid size-10 place-items-center rounded-none border ${
+                      area.title === "Operational technology"
+                        ? "border-white/25 bg-white/10"
+                        : "border-primary/20 bg-primary/10 text-primary"
+                    }`}
                   >
-                    <span className="mb-4 grid size-10 place-items-center border border-current/25 bg-white/10">
-                      {area.icon}
-                    </span>
-                    <h3 className="font-semibold">{area.title}</h3>
-                    <p className="mt-2 text-sm leading-6 text-primary-foreground/80">
-                      {area.body}
-                    </p>
-                  </WobbleCard>
-                ) : (
-                  <SpotlightCard className="h-full rounded-none p-5">
-                    <span className="mb-4 grid size-10 place-items-center rounded-none border border-primary/20 bg-primary/10 text-primary">
-                      {area.icon}
-                    </span>
-                    <h3 className="font-semibold">{area.title}</h3>
-                    <p className="mt-2 text-sm leading-6 text-muted-foreground">
-                      {area.body}
-                    </p>
-                  </SpotlightCard>
-                )}
+                    {area.icon}
+                  </span>
+                  <h3 className="font-semibold">{area.title}</h3>
+                  <p
+                    className={`mt-2 min-h-12 text-sm leading-6 ${
+                      area.title === "Operational technology"
+                        ? "text-primary-foreground/80"
+                        : "text-muted-foreground"
+                    }`}
+                  >
+                    {area.body}
+                  </p>
+                </SpotlightCard>
               </BlurFade>
             ))}
           </div>
@@ -151,17 +151,17 @@ export default function AboutPage() {
           <h2 className="text-2xl font-semibold tracking-tight">
             Company information
           </h2>
-          <dl className="mt-8 grid overflow-hidden rounded-2xl border bg-card sm:grid-cols-2 lg:grid-cols-3">
+          <dl className="mt-8 grid gap-px overflow-hidden rounded-none border bg-border sm:grid-cols-2">
             {[
               ["Legal name", siteConfig.name],
               ["Company registration no.", siteConfig.registration],
               ["PAN no.", siteConfig.pan],
               ["Address", siteConfig.address],
               ["Email", siteConfig.email],
-            ].map(([term, value]) => (
+            ].map(([term, value], i, arr) => (
               <div
                 key={term}
-                className="border-b border-r border-border/60 p-5 last:border-r-0"
+                className={`bg-card p-5 ${i === arr.length - 1 ? "sm:col-span-2" : ""}`}
               >
                 <dt className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
                   {term}

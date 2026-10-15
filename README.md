@@ -28,6 +28,10 @@ The site is configured for static export. The contact form therefore posts direc
 - `pnpm lint` checks source files.
 - `pnpm build` validates and exports the static site into `out/`.
 
+## Agent skills
+
+- `taste-SKILL.md` (project home) is mandatory reading before every agent task. `AGENTS.md` and `CLAUDE.md` both enforce this: declare the one-line Design Read, do the work, then run the skill's Final Pre-Flight Check.
+
 ## Configuration
 
 The public site URL defaults to `https://shyenasec.com`. Google Analytics is only loaded when a valid `NEXT_PUBLIC_GA_MEASUREMENT_ID` is set. Do not commit `.env.local` or other secret files.
