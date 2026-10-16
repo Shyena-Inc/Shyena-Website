@@ -194,9 +194,6 @@ export default function HomePage() {
 
           <div className="relative mx-auto flex w-full max-w-[620px] items-center justify-center md:pl-2">
             <GlobalGlobe />
-            <p className="absolute inset-x-0 bottom-0 text-center text-[11px] leading-5 text-muted-foreground">
-              Illustrative paths; Lalitpur is the only identified location.
-            </p>
           </div>
         </div>
 
