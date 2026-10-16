@@ -12,7 +12,7 @@ import { siteConfig } from "@/lib/site-config";
 export const metadata: Metadata = pageMetadata({
   title: "Contact Shyena",
   description:
-    "Contact Shyena Technologies Pvt. Ltd. about cybersecurity services, FlagForge, or a SecYourFlow demonstration.",
+    "Contact Shyena Technologies Pvt. Ltd. about cybersecurity services, FlagForge, or a SecYourFlow demonstration. Inquiries welcome from Nepal and international organizations.",
   path: "/contact",
 });
 

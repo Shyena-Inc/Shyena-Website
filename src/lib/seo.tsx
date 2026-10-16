@@ -54,18 +54,25 @@ export function pageMetadata({
 
 export const absoluteUrl = (path: string) => `${siteConfig.url}${path}`;
 
+const sameAs = [
+  siteConfig.socials.linkedin,
+  siteConfig.socials.instagram,
+  siteConfig.socials.github,
+].filter(Boolean);
+
 export const publisher = {
   "@type": "Organization",
   name: "Shyena Technologies Pvt. Ltd.",
   url: siteConfig.url,
   email: "whois@shyenasec.com",
+  ...(sameAs.length ? { sameAs } : {}),
   address: {
     "@type": "PostalAddress",
     streetAddress: "Tikathali – 5",
     addressLocality: "Lalitpur",
     addressCountry: "NP",
   },
-} as const;
+};
 
 export function breadcrumbs(items: { name: string; path: string }[]) {
   return {

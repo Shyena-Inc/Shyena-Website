@@ -6,7 +6,7 @@ Corporate website for Shyena Technologies Pvt. Ltd., built on the Velora UI Next
 
 1. Install Node.js and pnpm.
 2. Copy `.env.example` to `.env.local`.
-3. Set `NEXT_PUBLIC_SITE_URL` to the canonical production origin. Set `NEXT_PUBLIC_GA_MEASUREMENT_ID` to the Google Analytics ID when ready. Add a Formspree form ID to enable contact submissions; until then, the page gives visitors the company email address.
+3. Set `NEXT_PUBLIC_SITE_URL` to the canonical production origin. Set `NEXT_PUBLIC_GA_MEASUREMENT_ID` to the Google Analytics ID when ready. Set `NEXT_PUBLIC_LINKEDIN_URL`, `NEXT_PUBLIC_INSTAGRAM_URL`, and `NEXT_PUBLIC_GITHUB_URL` to the company profiles when ready; footer icons and search `sameAs` entries render only for URLs that are set. Add a Formspree form ID to enable contact submissions; until then, the page gives visitors the company email address.
 4. Run `pnpm install` and `pnpm dev`.
 
 The site is configured for static export. The contact form therefore posts directly to Formspree and does not depend on a Next.js server route. See `docs/blogging.md` for the Pages CMS workflow.

@@ -10,7 +10,7 @@ import { SiteHeader } from "@/components/site-header";
 import { PageHeader } from "@/components/page-header";
 import { SpotlightCard } from "@/components/velora/spotlight-card";
 import { MacbookScroll } from "@/components/velora/macbook-scroll";
-import { pageMetadata } from "@/lib/seo";
+import { pageMetadata, JsonLd, breadcrumbs } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
   title: "FlagForge CTF",
@@ -23,6 +23,13 @@ export default function FlagForgePage() {
   return (
     <main className="relative">
       <SiteHeader />
+      <JsonLd
+        data={breadcrumbs([
+          { name: "Home", path: "/" },
+          { name: "Projects", path: "/projects" },
+          { name: "FlagForge CTF", path: "/projects/flagforge" },
+        ])}
+      />
       <PageHeader
         eyebrow="Project · Cybersecurity learning"
         title={

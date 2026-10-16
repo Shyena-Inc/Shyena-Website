@@ -9,7 +9,7 @@ import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { Markdown } from "../markdown";
 import { getJournalPost, getJournalPosts } from "../content";
-import { pageMetadata } from "@/lib/seo";
+import { pageMetadata, JsonLd, breadcrumbs } from "@/lib/seo";
 import { siteConfig } from "@/lib/site-config";
 
 export async function generateStaticParams() {
@@ -62,6 +62,13 @@ export default async function JournalArticlePage({ params }: ArticlePageProps) {
   return (
     <main className="relative">
       <SiteHeader />
+      <JsonLd
+        data={breadcrumbs([
+          { name: "Home", path: "/" },
+          { name: "Insights", path: "/blog" },
+          { name: post.title, path: `/blog/${post.slug}` },
+        ])}
+      />
       <article className="mx-auto max-w-3xl px-4 pt-32 pb-24 md:pt-40 lg:px-8">
         <Link
           href="/blog"

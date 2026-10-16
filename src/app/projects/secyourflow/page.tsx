@@ -9,7 +9,7 @@ import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { PageHeader } from "@/components/page-header";
 import { BrowserMockup } from "@/components/velora/browser-mockup";
-import { pageMetadata } from "@/lib/seo";
+import { pageMetadata, JsonLd, breadcrumbs } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
   title: "SecYourFlow",
@@ -30,6 +30,13 @@ export default function SecYourFlowPage() {
   return (
     <main className="relative">
       <SiteHeader />
+      <JsonLd
+        data={breadcrumbs([
+          { name: "Home", path: "/" },
+          { name: "Projects", path: "/projects" },
+          { name: "SecYourFlow", path: "/projects/secyourflow" },
+        ])}
+      />
       <PageHeader
         eyebrow="Project · Security workflow"
         title={

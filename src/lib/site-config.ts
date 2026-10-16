@@ -16,4 +16,9 @@ export const siteConfig = {
   tagline: "Cybersecurity for connected systems",
   description:
     "Shyena Technologies Pvt. Ltd. provides cybersecurity services, security products and practical cybersecurity learning from Lalitpur, Nepal.",
+  socials: {
+    linkedin: process.env.NEXT_PUBLIC_LINKEDIN_URL ?? "",
+    instagram: process.env.NEXT_PUBLIC_INSTAGRAM_URL ?? "",
+    github: process.env.NEXT_PUBLIC_GITHUB_URL ?? "",
+  },
 } as const;

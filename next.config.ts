@@ -7,6 +7,9 @@ const nextConfig: NextConfig = {
   output: "export",
   pageExtensions: ["ts", "tsx", "md", "mdx"],
   images: { unoptimized: true },
+  // @phosphor-icons/react ships ESM-first with a CJS fallback whose React
+  // interop breaks static prerendering; transpile it into the app bundle.
+  transpilePackages: ["@phosphor-icons/react"],
 };
 
 const withMDX = createMDX({});

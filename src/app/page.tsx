@@ -136,7 +136,17 @@ export default function HomePage() {
   return (
     <main className="relative overflow-hidden">
       <JsonLd
-        data={{ ...publisher, "@type": "Organization", name: siteConfig.name }}
+        data={[
+          { ...publisher, "@type": "Organization", name: siteConfig.name },
+          {
+            "@type": "FAQPage",
+            mainEntity: faqs.map((faq) => ({
+              "@type": "Question",
+              name: faq.question,
+              acceptedAnswer: { "@type": "Answer", text: faq.answer },
+            })),
+          },
+        ]}
       />
       <SiteHeader />
 

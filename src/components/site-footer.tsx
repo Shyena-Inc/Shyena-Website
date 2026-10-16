@@ -1,9 +1,16 @@
 import Link from "next/link";
 import { ArrowUpRightIcon, MailIcon, MapPinIcon } from "lucide-react";
+import { GithubLogo, InstagramLogo, LinkedinLogo } from "@phosphor-icons/react/ssr";
 
 import { Button } from "@/components/ui/button";
 import { TextHoverEffect } from "@/components/velora/text-hover-effect";
 import { siteConfig } from "@/lib/site-config";
+
+const socialLinks = [
+  { label: "Shyena on LinkedIn", href: siteConfig.socials.linkedin, Icon: LinkedinLogo },
+  { label: "Shyena on Instagram", href: siteConfig.socials.instagram, Icon: InstagramLogo },
+  { label: "Shyena on GitHub", href: siteConfig.socials.github, Icon: GithubLogo },
+].filter((link) => link.href);
 
 const groups = [
   {
@@ -75,6 +82,22 @@ export function SiteFooter() {
               Discuss an engagement <ArrowUpRightIcon className="size-4" />
             </Link>
           </Button>
+          {socialLinks.length > 0 && (
+            <div className="mt-5 flex gap-2">
+              {socialLinks.map(({ label, href, Icon }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="me noopener"
+                  aria-label={label}
+                  className="grid size-9 place-items-center rounded-none border border-border text-muted-foreground transition-colors hover:border-primary/40 hover:text-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
+                >
+                  <Icon className="size-4" aria-hidden />
+                </a>
+              ))}
+            </div>
+          )}
         </div>
         {groups.map((group) => (
           <nav

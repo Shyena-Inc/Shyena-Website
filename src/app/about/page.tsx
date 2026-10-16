@@ -21,7 +21,7 @@ import { siteConfig } from "@/lib/site-config";
 export const metadata: Metadata = pageMetadata({
   title: "About Shyena Technologies",
   description:
-    "Company information for Shyena Technologies Pvt. Ltd., a cybersecurity and technology company based in Lalitpur, Nepal.",
+    "Company information for Shyena Technologies Pvt. Ltd., a cybersecurity and technology company based in Lalitpur, Nepal, serving organizations in Nepal and international markets.",
   path: "/about",
 });
 
