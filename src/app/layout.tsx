@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import Script from "next/script";
 import { IBM_Plex_Mono, IBM_Plex_Sans } from "next/font/google";
 import "./globals.css";
@@ -19,6 +19,13 @@ const plexMono = IBM_Plex_Mono({
 
 const analyticsId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
 const validAnalyticsId = analyticsId && /^G-[A-Z0-9]+$/.test(analyticsId);
+
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+    { media: "(prefers-color-scheme: dark)", color: "#0a0a0b" },
+  ],
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
