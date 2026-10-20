@@ -12,6 +12,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ["/projects", 0.8],
     ["/projects/flagforge", 0.6],
     ["/projects/secyourflow", 0.6],
+    ["/projects/safe", 0.6],
     ["/contact", 0.6],
     ["/blog", 0.6],
   ] as const;

@@ -14,7 +14,7 @@ import { pageMetadata } from "@/lib/seo";
 export const metadata: Metadata = pageMetadata({
   title: "Projects",
   description:
-    "Explore FlagForge, a public cybersecurity challenge platform, and SecYourFlow, a private security workflow project by Shyena Technologies.",
+    "Explore FlagForge, a public cybersecurity challenge platform, and Shyena projects SAFE and SecYourFlow, for security workflows and endpoint AI protection.",
   path: "/projects",
 });
 
@@ -27,6 +27,15 @@ const projects = [
     logo: "/brand/flagforge-logo.png",
     alt: "FlagForge logo",
     href: "/projects/flagforge",
+  },
+  {
+    title: "SAFE",
+    status: "Open source",
+    description:
+      "Endpoint AI detection and response. Prompts to AI services are checked on the device, and risky ones are stopped before they leave.",
+    logo: "/safe/safe-logo.png",
+    alt: "SAFE logo",
+    href: "/projects/safe",
   },
   {
     title: "SecYourFlow",
@@ -54,7 +63,7 @@ export default function ProjectsPage() {
         description="Projects by Shyena Technologies Pvt. Ltd., built around practical cybersecurity learning and security workflows."
       />
       <section className="pb-28">
-        <div className="mx-auto grid max-w-6xl gap-5 px-4 md:grid-cols-2 lg:px-8">
+        <div className="mx-auto grid max-w-6xl gap-5 px-4 md:grid-cols-2 lg:grid-cols-3 lg:px-8">
           {projects.map((project, index) => (
             <BlurFade key={project.title} delay={index * 0.1}>
               <SpotlightCard className="h-full rounded-2xl p-6 sm:p-8">

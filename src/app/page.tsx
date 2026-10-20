@@ -321,7 +321,7 @@ export default function HomePage() {
               </Link>
             </Button>
           </div>
-          <div className="mt-10 grid gap-5 md:grid-cols-2">
+          <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             <SpotlightCard className="h-full rounded-none p-6 sm:p-8">
               <Link
                 href="/projects/flagforge"
@@ -369,6 +369,33 @@ export default function HomePage() {
                     <p className="mt-2 max-w-lg text-sm leading-6 text-muted-foreground">
                       A private security workflow project. Contact Shyena to
                       request a demonstration.
+                    </p>
+                  </div>
+                  <ArrowUpRightIcon className="mt-1 size-5 shrink-0 text-primary transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                </div>
+              </Link>
+            </SpotlightCard>
+            <SpotlightCard className="h-full rounded-none p-6 sm:p-8 md:col-span-2 lg:col-span-1">
+              <Link
+                href="/projects/safe"
+                className="group block rounded-none focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring"
+              >
+                <div className="flex min-h-44 items-center justify-center rounded-none border border-border bg-muted/50 p-8">
+                  <Image
+                    src="/safe/safe-logo.png"
+                    alt="SAFE logo"
+                    width={160}
+                    height={160}
+                    className="size-24 object-contain transition-transform duration-300 group-hover:scale-105 motion-reduce:transition-none"
+                  />
+                </div>
+                <div className="mt-6 flex items-start justify-between gap-4">
+                  <div>
+                    <h3 className="text-xl font-semibold">SAFE</h3>
+                    <p className="mt-2 max-w-lg text-sm leading-6 text-muted-foreground">
+                      Endpoint AI detection and response. Prompts to AI services
+                      are checked on the device, and risky ones stop before
+                      they leave.
                     </p>
                   </div>
                   <ArrowUpRightIcon className="mt-1 size-5 shrink-0 text-primary transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />

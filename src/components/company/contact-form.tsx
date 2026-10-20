@@ -19,6 +19,7 @@ const topics = [
   "Compliance and risk advisory",
   "FlagForge",
   "SecYourFlow demo",
+  "SAFE inquiry",
   "Other inquiry",
 ];
 const noChange = () => () => {};

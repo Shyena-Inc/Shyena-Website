@@ -99,9 +99,10 @@ export default function AboutPage() {
                 security workflows.
               </p>
               <p className="leading-7">
-                FlagForge and SecYourFlow reflect those interests: one offers
-                cybersecurity challenges for practice, while the other is a
-                private project for organizing security work.
+                FlagForge, SAFE, and SecYourFlow reflect those interests: one
+                offers cybersecurity challenges for practice, another checks AI
+                use on protected devices, and the third is a private project
+                for organizing security work.
               </p>
               <Button asChild className="mt-2 rounded-full">
                 <Link href="/contact">

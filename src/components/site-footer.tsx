@@ -36,6 +36,7 @@ const groups = [
     title: "Projects",
     links: [
       { text: "FlagForge", href: "/projects/flagforge" },
+      { text: "SAFE", href: "/projects/safe" },
       { text: "SecYourFlow", href: "/projects/secyourflow" },
       { text: "All projects", href: "/projects" },
     ],
