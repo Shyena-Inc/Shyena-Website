@@ -1,7 +1,7 @@
 # Shyena Technologies Pvt. Ltd.
 
 > Cybersecurity for connected systems: hardware, firmware, IoT, and OT / ICS
-> security assessments, security projects for practice and security workflows,
+> security assessments, security products for practice and security workflows,
 > and practical cybersecurity learning. Based in Lalitpur, Nepal, and serving
 > organizations in Nepal and international markets.
 
@@ -12,15 +12,16 @@ Page-by-page details are in [llms-full.txt](https://shyenasec.com/llms-full.txt)
 
 - [Home](https://shyenasec.com/): Hardware, firmware, connected device, and OT / ICS security assessments, with the six service areas and case focus areas of the company.
 - [About](https://shyenasec.com/about): Company information for Shyena Technologies Pvt. Ltd., a cybersecurity and technology company registered in Nepal.
-- [Projects](https://shyenasec.com/projects): Index of security projects built around practical cybersecurity learning and security workflows.
+- [Products](https://shyenasec.com/products): Index of security products built around practical cybersecurity learning and security workflows.
 - [Blog](https://shyenasec.com/blog): Practical articles on security assessment scope and methods.
 - [Contact](https://shyenasec.com/contact): Contact form with selectable inquiry topics; general email whois@shyenasec.com.
 
-## Security projects
+## Security products
 
-- [FlagForge](https://shyenasec.com/projects/flagforge): A public capture-the-flag platform for practicing web security, cryptography, reverse engineering, and forensics at flagforgectf.com.
-- [SAFE](https://shyenasec.com/projects/safe): Endpoint AI detection and response. Prompts sent to AI services are checked on the device, and risky ones are stopped before they leave. Details at https://safe-website-flax.vercel.app/.
-- [SecYourFlow](https://shyenasec.com/projects/secyourflow): A private security workflow project that brings security assets, findings, and follow-up into a clearer view. Available for demonstration on request.
+- [FlagForge](https://shyenasec.com/products/flagforge): A public capture-the-flag platform for practicing web security, cryptography, reverse engineering, and forensics at flagforgectf.com.
+- [SAFE](https://shyenasec.com/products/safe): Endpoint AI detection and response. Prompts sent to AI services are checked on the device, and risky ones are stopped before they leave. Details at https://safe-website-flax.vercel.app/.
+- [SecYourScan](https://shyenasec.com/products/secyourscan): Breach and exposure monitoring, public email/domain checks, and a breach directory at https://secyourscan.shyenasec.com.
+- [SecYourFlow](https://shyenasec.com/products/secyourflow): Self-hosted cyber risk workspace for assets, vulnerabilities, risk, suppliers, BIA, and NIS2. Visit https://secyourflow.shyenasec.com.
 
 ## Services
 

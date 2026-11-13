@@ -9,10 +9,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const pages = [
     ["/", 1],
     ["/about", 0.7],
-    ["/projects", 0.8],
-    ["/projects/flagforge", 0.6],
-    ["/projects/secyourflow", 0.6],
-    ["/projects/safe", 0.6],
+    ["/products", 0.8],
+    ["/products/secyourscan", 0.6],
+    ["/products/flagforge", 0.6],
+    ["/products/secyourflow", 0.6],
+    ["/products/safe", 0.6],
     ["/contact", 0.6],
     ["/blog", 0.6],
   ] as const;

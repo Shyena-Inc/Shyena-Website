@@ -31,7 +31,7 @@ export const metadata: Metadata = pageMetadata({
   title: "SAFE",
   description:
     "SAFE is an endpoint AI detection and response agent that checks prompts to AI services and stops credentials, personal data, and source code before they leave the device.",
-  path: "/projects/safe",
+  path: "/products/safe",
 });
 
 const safeWebsite = "https://safe-website-flax.vercel.app/";
@@ -245,12 +245,12 @@ export default function SafePage() {
       <JsonLd
         data={breadcrumbs([
           { name: "Home", path: "/" },
-          { name: "Projects", path: "/projects" },
-          { name: "SAFE", path: "/projects/safe" },
+          { name: "Products", path: "/products" },
+          { name: "SAFE", path: "/products/safe" },
         ])}
       />
       <PageHeader
-        eyebrow="Project · AI detection and response"
+        eyebrow="Product · AI detection and response"
         title={
           <>
             Prompts are checked before{" "}
@@ -312,8 +312,8 @@ export default function SafePage() {
               </a>
             </Button>
             <Button asChild variant="ghost" className="mt-2 rounded-full">
-              <Link href="/projects">
-                <ArrowLeftIcon className="size-4" /> All projects
+              <Link href="/products">
+                <ArrowLeftIcon className="size-4" /> All products
               </Link>
             </Button>
           </div>

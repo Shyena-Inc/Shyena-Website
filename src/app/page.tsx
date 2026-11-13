@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Image from "next/image";
+import { ProductCards } from "@/components/products/product-parts";
 import Link from "next/link";
 import {
   ArrowRightIcon,
@@ -166,12 +166,12 @@ export default function HomePage() {
               </PointerHighlight>
             </h1>
             <p className="mt-6 max-w-xl text-base leading-7 text-muted-foreground sm:text-lg sm:leading-8">
-              Independent testing for hardware, firmware, connected devices,
-              and OT / ICS environments. Based in Lalitpur, Nepal; serving
+              Independent testing for hardware, firmware, connected devices, and
+              OT / ICS environments. Based in Lalitpur, Nepal; serving
               organizations in Nepal and international markets.
             </p>
             <p className="mt-4 text-sm text-muted-foreground">
-              Start with: {" "}
+              Start with:{" "}
               <FlipWords
                 words={["the asset", "the operating context", "the scope"]}
                 duration={1500}
@@ -184,7 +184,11 @@ export default function HomePage() {
                   Discuss an assessment <ArrowUpRightIcon className="size-4" />
                 </Link>
               </Button>
-              <Button asChild className="h-12 rounded-none px-6" variant="outline">
+              <Button
+                asChild
+                className="h-12 rounded-none px-6"
+                variant="outline"
+              >
                 <Link href="#services">
                   View service lines <ArrowRightIcon className="size-4" />
                 </Link>
@@ -247,7 +251,10 @@ export default function HomePage() {
           <BlurFade delay={0.12}>
             <BentoGrid className="mt-10 auto-rows-auto grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {services.map((service) => (
-                <SpotlightCard key={service.id} className="h-full rounded-none p-5 sm:p-6">
+                <SpotlightCard
+                  key={service.id}
+                  className="h-full rounded-none p-5 sm:p-6"
+                >
                   <Link
                     id={service.id}
                     href={service.href}
@@ -310,98 +317,19 @@ export default function HomePage() {
         <div className="mx-auto max-w-7xl px-4 lg:px-8">
           <div className="flex flex-wrap items-end justify-between gap-5">
             <div className="max-w-2xl">
-              <p className="text-sm font-medium text-primary">Projects</p>
+              <p className="text-sm font-medium text-primary">Products</p>
               <h2 className="mt-3 text-3xl font-semibold tracking-tight text-balance sm:text-4xl">
                 Tools for practice and security work.
               </h2>
             </div>
             <Button asChild variant="ghost" className="rounded-none">
-              <Link href="/projects">
-                View all projects <ArrowRightIcon className="size-4" />
+              <Link href="/products">
+                View all products <ArrowRightIcon className="size-4" />
               </Link>
             </Button>
           </div>
-          <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-            <SpotlightCard className="h-full rounded-none p-6 sm:p-8">
-              <Link
-                href="/projects/flagforge"
-                className="group block rounded-none focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring"
-              >
-                <div className="flex min-h-44 items-center justify-center rounded-none border border-border bg-muted/50 p-8">
-                  <Image
-                    src="/brand/flagforge-logo.png"
-                    alt="FlagForge logo"
-                    width={160}
-                    height={160}
-                    className="size-24 object-contain transition-transform duration-300 group-hover:scale-105 motion-reduce:transition-none"
-                  />
-                </div>
-                <div className="mt-6 flex items-start justify-between gap-4">
-                  <div>
-                    <h3 className="text-xl font-semibold">FlagForge</h3>
-                    <p className="mt-2 max-w-lg text-sm leading-6 text-muted-foreground">
-                      Capture-the-flag cybersecurity challenges across web
-                      security, cryptography, reverse engineering, and
-                      forensics.
-                    </p>
-                  </div>
-                  <ArrowUpRightIcon className="mt-1 size-5 shrink-0 text-primary transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                </div>
-              </Link>
-            </SpotlightCard>
-            <SpotlightCard className="h-full rounded-none p-6 sm:p-8">
-              <Link
-                href="/projects/secyourflow"
-                className="group block rounded-none focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring"
-              >
-                <div className="flex min-h-44 items-center justify-center rounded-none border border-border bg-muted/50 p-8">
-                  <Image
-                    src="/brand/secyourflow-logo.png"
-                    alt="SecYourFlow logo"
-                    width={160}
-                    height={160}
-                    className="size-24 object-contain transition-transform duration-300 group-hover:scale-105 motion-reduce:transition-none"
-                  />
-                </div>
-                <div className="mt-6 flex items-start justify-between gap-4">
-                  <div>
-                    <h3 className="text-xl font-semibold">SecYourFlow</h3>
-                    <p className="mt-2 max-w-lg text-sm leading-6 text-muted-foreground">
-                      A private security workflow project. Contact Shyena to
-                      request a demonstration.
-                    </p>
-                  </div>
-                  <ArrowUpRightIcon className="mt-1 size-5 shrink-0 text-primary transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                </div>
-              </Link>
-            </SpotlightCard>
-            <SpotlightCard className="h-full rounded-none p-6 sm:p-8 md:col-span-2 lg:col-span-1">
-              <Link
-                href="/projects/safe"
-                className="group block rounded-none focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring"
-              >
-                <div className="flex min-h-44 items-center justify-center rounded-none border border-border bg-muted/50 p-8">
-                  <Image
-                    src="/safe/safe-logo.png"
-                    alt="SAFE logo"
-                    width={160}
-                    height={160}
-                    className="size-24 object-contain transition-transform duration-300 group-hover:scale-105 motion-reduce:transition-none"
-                  />
-                </div>
-                <div className="mt-6 flex items-start justify-between gap-4">
-                  <div>
-                    <h3 className="text-xl font-semibold">SAFE</h3>
-                    <p className="mt-2 max-w-lg text-sm leading-6 text-muted-foreground">
-                      Endpoint AI detection and response. Prompts to AI services
-                      are checked on the device, and risky ones stop before
-                      they leave.
-                    </p>
-                  </div>
-                  <ArrowUpRightIcon className="mt-1 size-5 shrink-0 text-primary transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                </div>
-              </Link>
-            </SpotlightCard>
+          <div className="mt-10">
+            <ProductCards headingLevel={3} />
           </div>
         </div>
       </section>
@@ -460,8 +388,8 @@ export default function HomePage() {
                 Do you know what is exposed in your systems?
               </h2>
               <p className="mt-5 max-w-xl text-base leading-7 text-white/70 sm:text-lg">
-                Hardware, firmware, connected devices, and OT environments
-                can be assessed within an agreed scope.
+                Hardware, firmware, connected devices, and OT environments can
+                be assessed within an agreed scope.
               </p>
               <Button
                 asChild
