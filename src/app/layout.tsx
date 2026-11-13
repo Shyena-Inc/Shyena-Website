@@ -43,18 +43,19 @@ export const metadata: Metadata = {
     "SCADA penetration testing",
     "FlagForge",
     "SecYourFlow",
+    "SecYourScan",
   ],
   authors: [{ name: siteConfig.name }],
   openGraph: {
     type: "website",
     url: siteConfig.url,
     siteName: siteConfig.name,
-    title: `${siteConfig.name} — ${siteConfig.tagline}`,
+    title: `${siteConfig.name} | ${siteConfig.tagline}`,
     description: siteConfig.description,
   },
   twitter: {
     card: "summary_large_image",
-    title: `${siteConfig.name} — ${siteConfig.tagline}`,
+    title: `${siteConfig.name} | ${siteConfig.tagline}`,
     description: siteConfig.description,
   },
 };

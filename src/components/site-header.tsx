@@ -1,3 +1,4 @@
+import { BrandLogo } from "@/components/brand-logo";
 import Link from "next/link";
 import { ArrowUpRightIcon, MailIcon } from "lucide-react";
 
@@ -19,7 +20,7 @@ const links = [
       { label: "Risk advisory", href: "/#service-risk-advisory" },
     ],
   },
-  { label: "Projects", href: "/projects" },
+  { label: "Products", href: "/products" },
   { label: "Company", href: "/about" },
   { label: "Insights", href: "/blog" },
 ];
@@ -29,14 +30,9 @@ function Logo() {
     <Link
       href="/"
       aria-label={`${siteConfig.name} home`}
-      className="flex min-w-0 items-center font-semibold tracking-tight focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring"
+      className="flex min-w-0 items-center gap-2 font-semibold tracking-tight focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring"
     >
-      <span className="flex flex-col text-sm leading-tight">
-        Shyena Technologies
-        <span className="mt-0.5 text-xs font-normal text-muted-foreground">
-          Pvt. Ltd.
-        </span>
-      </span>
+      <BrandLogo />
     </Link>
   );
 }
@@ -47,7 +43,10 @@ export function SiteHeader() {
       <div className="border-b border-border/70 bg-muted/70 text-muted-foreground backdrop-blur">
         <div className="mx-auto flex min-h-8 max-w-7xl items-center justify-between gap-3 px-4 py-1 text-[10px] font-medium tracking-wide sm:text-xs lg:px-8">
           <p className="min-w-0 truncate">
-            Based in Lalitpur, Nepal <span aria-hidden className="px-1.5">/</span>
+            Based in Lalitpur, Nepal{" "}
+            <span aria-hidden className="px-1.5">
+              /
+            </span>
             Serving Nepal and international markets
           </p>
           <a

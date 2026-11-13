@@ -39,7 +39,7 @@ const focusAreas = [
   {
     icon: <ShieldCheckIcon className="size-5" />,
     title: "Security products",
-    body: "Projects that support security workflows and hands-on practice.",
+    body: "Products that support security workflows and hands-on practice.",
   },
   {
     icon: <GraduationCapIcon className="size-5" />,

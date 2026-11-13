@@ -1,15 +1,32 @@
+import { BrandLogo } from "@/components/brand-logo";
 import Link from "next/link";
 import { ArrowUpRightIcon, MailIcon, MapPinIcon } from "lucide-react";
-import { GithubLogo, InstagramLogo, LinkedinLogo } from "@phosphor-icons/react/ssr";
+import {
+  GithubLogo,
+  InstagramLogo,
+  LinkedinLogo,
+} from "@phosphor-icons/react/ssr";
 
 import { Button } from "@/components/ui/button";
 import { TextHoverEffect } from "@/components/velora/text-hover-effect";
 import { siteConfig } from "@/lib/site-config";
 
 const socialLinks = [
-  { label: "Shyena on LinkedIn", href: siteConfig.socials.linkedin, Icon: LinkedinLogo },
-  { label: "Shyena on Instagram", href: siteConfig.socials.instagram, Icon: InstagramLogo },
-  { label: "Shyena on GitHub", href: siteConfig.socials.github, Icon: GithubLogo },
+  {
+    label: "Shyena on LinkedIn",
+    href: siteConfig.socials.linkedin,
+    Icon: LinkedinLogo,
+  },
+  {
+    label: "Shyena on Instagram",
+    href: siteConfig.socials.instagram,
+    Icon: InstagramLogo,
+  },
+  {
+    label: "Shyena on GitHub",
+    href: siteConfig.socials.github,
+    Icon: GithubLogo,
+  },
 ].filter((link) => link.href);
 
 const groups = [
@@ -33,12 +50,13 @@ const groups = [
     ],
   },
   {
-    title: "Projects",
+    title: "Products",
     links: [
-      { text: "FlagForge", href: "/projects/flagforge" },
-      { text: "SAFE", href: "/projects/safe" },
-      { text: "SecYourFlow", href: "/projects/secyourflow" },
-      { text: "All projects", href: "/projects" },
+      { text: "SecYourScan", href: "/products/secyourscan" },
+      { text: "FlagForge", href: "/products/flagforge" },
+      { text: "SAFE", href: "/products/safe" },
+      { text: "SecYourFlow", href: "/products/secyourflow" },
+      { text: "All products", href: "/products" },
     ],
   },
 ] as const;
@@ -53,9 +71,10 @@ export function SiteFooter() {
         <div className="col-span-2 md:col-span-2">
           <Link
             href="/"
-            className="flex w-fit items-center font-semibold tracking-tight"
+            aria-label={`${siteConfig.name} home`}
+            className="flex w-fit items-center gap-3 font-semibold tracking-tight"
           >
-            <span className="text-sm">{siteConfig.name}</span>
+            <BrandLogo className="h-16 w-52" />
           </Link>
           <p className="mt-4 max-w-sm text-sm leading-6 text-muted-foreground">
             Security assessments for hardware, connected devices, and
@@ -137,7 +156,9 @@ export function SiteFooter() {
       <div className="border-t border-border">
         <div className="mx-auto flex max-w-7xl flex-col gap-3 px-4 py-5 text-xs text-muted-foreground lg:px-8">
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-            <span>© {new Date().getFullYear()} {siteConfig.name}</span>
+            <span>
+              © {new Date().getFullYear()} {siteConfig.name}
+            </span>
             <div className="flex gap-4">
               <Link href="/privacy" className="hover:text-foreground">
                 Privacy
