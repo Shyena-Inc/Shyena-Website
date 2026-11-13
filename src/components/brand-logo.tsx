@@ -6,13 +6,13 @@ export function BrandLogo({ className }: { className?: string }) {
   return (
     <span
       aria-hidden="true"
-      className={cn("relative block size-14 shrink-0", className)}
+      className={cn("relative block h-12 w-44 shrink-0", className)}
     >
       <Image
         src="/brand/shyena-logo-light.png"
         alt=""
         fill
-        sizes="80px"
+        sizes="(max-width: 767px) 176px, 208px"
         priority
         className="object-contain dark:hidden"
       />
@@ -20,7 +20,7 @@ export function BrandLogo({ className }: { className?: string }) {
         src="/brand/shyena-logo-dark.png"
         alt=""
         fill
-        sizes="80px"
+        sizes="(max-width: 767px) 176px, 208px"
         priority
         className="hidden object-contain dark:block"
       />

@@ -9,7 +9,7 @@
 
 ## Assets
 
-The user supplied SecYourFlow, Shyena, and SecYourScan logos as JPGs. Product logo colours and proportions are retained with white backing. The Shyena header/footer logo uses generated transparent PNG variants: navy text in light mode and white text in dark mode, selected by the site theme. FlagForge and SAFE use existing repository logos.
+The user supplied SecYourFlow, Shyena, and SecYourScan logos as JPGs. SecYourFlow (stacked and horizontal), SecYourScan, and the horizontal Shyena logo use generated transparent PNG variants. Navy lettering is used in light mode and pale lettering in dark mode, with blue/cyan accents retained. The horizontal Shyena logo replaces the separate company-name text in the header/footer. The original large decorative footer wordmark remains unchanged. FlagForge and SAFE use existing repository logos.
 
 SecYourScan and FlagForge preview images are browser captures of their public interfaces, not reconstructed UI. SecYourScan's capture excludes live index totals. The blue-prism image is generated conceptual supporting photography and is explicitly labelled as such. It is not a product screenshot.
 
@@ -29,3 +29,5 @@ Next.js exports static pages to `out/`. Cloudflare Pages reads `public/_redirect
 - Cloudflare Wrangler Pages local preview parsed the redirect rules and returned HTTP 301 for `/projects`, `/projects/`, and the FlagForge, SecYourFlow, and SAFE old detail URLs.
 - Transparent Shyena PNGs have real alpha. Browser checks confirmed that only the correct variant is displayed for each theme and its container background is transparent.
 - Taste pre-flight: corporate theme and blue accent retained, square product panels, evidence-based copy reviewed, no fabricated metrics/testimonials, and sample workspace imagery labelled. Forms and unrelated landing-page animations were not changed. No production deployment was performed.
+- Final logo pass: 12 combinations across the listing, SecYourFlow, and SecYourScan at 375/1440 pixels in both themes passed image-loading, branding-text removal, correct variant selection, and overflow checks. The large footer TextHoverEffect block was compared verbatim with its original and is unchanged.
+- Publishing is blocked: both Git push and GitHub connector branch creation returned HTTP 403. Commits are retained locally on `codex/products-and-brand-update`.

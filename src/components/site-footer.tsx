@@ -71,10 +71,10 @@ export function SiteFooter() {
         <div className="col-span-2 md:col-span-2">
           <Link
             href="/"
+            aria-label={`${siteConfig.name} home`}
             className="flex w-fit items-center gap-3 font-semibold tracking-tight"
           >
-            <BrandLogo className="size-16" />
-            <span className="text-sm">{siteConfig.name}</span>
+            <BrandLogo className="h-16 w-52" />
           </Link>
           <p className="mt-4 max-w-sm text-sm leading-6 text-muted-foreground">
             Security assessments for hardware, connected devices, and

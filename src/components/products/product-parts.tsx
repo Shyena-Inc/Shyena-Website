@@ -9,26 +9,45 @@ import { products, type Product } from "@/lib/products";
 
 export function ProductLogo({
   product,
-  compact = false,
+  stacked = false,
 }: {
   product: Product;
-  compact?: boolean;
+  stacked?: boolean;
 }) {
+  const artwork =
+    product.slug === "secyourflow"
+      ? `/products/secyourflow-${stacked ? "stacked" : "horizontal"}`
+      : product.slug === "secyourscan"
+        ? "/products/secyourscan"
+        : null;
   return (
-    <div
-      className={`relative flex shrink-0 items-center justify-center overflow-hidden border border-border bg-white ${compact ? "h-24 w-48" : "h-40 w-full"}`}
-    >
-      <Image
-        src={product.logo}
-        alt={`${product.name} logo`}
-        width={320}
-        height={320}
-        className={
-          product.slug === "secyourflow"
-            ? "h-full w-full object-cover"
-            : "h-full w-auto object-contain"
-        }
-      />
+    <div className="relative flex h-40 w-full shrink-0 items-center justify-center overflow-hidden border border-border bg-muted/20 p-4">
+      {artwork ? (
+        <>
+          <Image
+            src={`${artwork}-light.png`}
+            alt={`${product.name} logo`}
+            width={640}
+            height={320}
+            className="h-full w-full object-contain dark:hidden"
+          />
+          <Image
+            src={`${artwork}-dark.png`}
+            alt={`${product.name} logo`}
+            width={640}
+            height={320}
+            className="hidden h-full w-full object-contain dark:block"
+          />
+        </>
+      ) : (
+        <Image
+          src={product.logo}
+          alt={`${product.name} logo`}
+          width={320}
+          height={320}
+          className="h-full w-auto object-contain"
+        />
+      )}
     </div>
   );
 }
@@ -43,7 +62,7 @@ export function ProductCards({ headingLevel = 2 }: { headingLevel?: 2 | 3 }) {
           href={`/products/${product.slug}`}
           className="group grid gap-5 border border-border bg-card p-5 transition-colors hover:border-primary focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring sm:p-7"
         >
-          <ProductLogo product={product} />
+          <ProductLogo product={product} stacked />
           <div>
             <p className="text-sm text-muted-foreground">{product.category}</p>
             <div className="mt-2 flex items-center justify-between gap-4">
