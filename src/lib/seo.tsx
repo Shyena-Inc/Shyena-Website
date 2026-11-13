@@ -27,7 +27,7 @@ export function pageMetadata({
 }): Metadata {
   const shareTitle =
     absoluteTitle ??
-    (title ? `${title} — ${siteConfig.name}` : siteConfig.name);
+    (title ? `${title} | ${siteConfig.name}` : siteConfig.name);
   return {
     title: absoluteTitle ? { absolute: absoluteTitle } : title,
     description,

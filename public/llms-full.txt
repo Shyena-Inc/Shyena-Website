@@ -3,22 +3,22 @@
 > Full page-by-page guide to https://shyenasec.com, the website of Shyena
 > Technologies Pvt. Ltd., a cybersecurity and technology company based in
 > Lalitpur, Nepal. The company provides security assessments for connected
-> systems, builds security projects for practice and security workflows, and
+> systems, builds security products for practice and security workflows, and
 > supports practical cybersecurity learning.
 
-All project introductions on this site use illustrations and visuals marked as
-illustrative with sample data. Contact the company for current engagement
-information.
+Product pages use authentic product captures. SecYourFlow workspace screens
+show a demo organisation with test data. Conceptual imagery is labelled.
 
 ## Table of contents
 
 - [Company overview](#company-overview)
 - [Home page](#home-page)
 - [About page](#about-page)
-- [Projects index](#projects-index)
+- [Products index](#products-index)
 - [FlagForge](#flagforge)
 - [SAFE](#safe)
 - [SecYourFlow](#secyourflow)
+- [SecYourScan](#secyourscan)
 - [Blog](#blog)
 - [Contact](#contact)
 - [Policies and legal](#policies-and-legal)
@@ -35,7 +35,7 @@ information.
 
 Focus areas: connected hardware (hardware, firmware, and device security
 assessments), operational technology (OT, ICS, and SCADA security
-assessments), security products (projects that support security workflows and
+assessments), security products (tools that support security workflows and
 hands-on practice), and practical learning (cybersecurity learning through the
 public FlagForge platform).
 
@@ -61,8 +61,8 @@ The page introduces six service areas:
 6. Compliance and risk advisory: identification of security gaps and a
    practical, prioritized path for risk treatment.
 
-The page also highlights the company's projects (FlagForge, SAFE, and
-SecYourFlow) and recent articles, with contact prompts for each service.
+The page also highlights the company's products (FlagForge, SAFE,
+SecYourFlow, and SecYourScan) and recent articles, with contact prompts for each service.
 
 # About page
 
@@ -71,39 +71,37 @@ https://shyenasec.com/about
 Company information for Shyena Technologies Pvt. Ltd., a cybersecurity and
 technology company based in Lalitpur, Nepal, serving organizations in Nepal
 and international markets. The page describes the focus areas listed under
-Company overview, and points to the projects FlagForge, SAFE, and SecYourFlow
+Company overview, and points to the products FlagForge, SAFE, SecYourFlow, and SecYourScan
 as examples of the company's security work.
 
-# Projects index
+# Products index
 
-https://shyenasec.com/projects
+https://shyenasec.com/products
 
-Lists the company's security projects built around practical cybersecurity
+Lists the company's security products built around practical cybersecurity
 learning and security workflows:
 
 - FlagForge (public)
 - SAFE (open source)
-- SecYourFlow (available privately)
+- SecYourFlow (self-hosted cyber risk workspace)
+- SecYourScan (breach and exposure monitoring)
 
 # FlagForge
 
-https://shyenasec.com/projects/flagforge
+https://shyenasec.com/products/flagforge
 
 FlagForge is a cybersecurity capture-the-flag platform for practicing web
 security, cryptography, reverse engineering, and forensics. It is a public
 platform, and the current challenges are available at
 https://flagforgectf.com.
 
-The page groups the platform's coverage into four challenge areas:
-
-1. Web security
-2. Cryptography
-3. Reverse engineering
-4. Forensics
+Challenge areas include web exploitation, cryptography, reverse engineering,
+forensics, binary exploitation, and miscellaneous security puzzles. The platform
+supports flag submissions, hints, points, a leaderboard, and GRC lessons.
 
 # SAFE
 
-https://shyenasec.com/projects/safe
+https://shyenasec.com/products/safe
 
 SAFE (Sensitive-data and Attack Filtering Engine) is an endpoint AI detection
 and response agent. Prompts to AI services are checked on the device, and
@@ -142,12 +140,22 @@ Inquiries: whois@shyenasec.com with the subject "SAFE inquiry".
 
 # SecYourFlow
 
-https://shyenasec.com/projects/secyourflow
+https://shyenasec.com/products/secyourflow
 
-SecYourFlow is a private security workflow project designed to bring security
-assets, findings, and follow-up into a clearer view. The project is available
-for a demonstration on request: contact Shyena through the
-contact page with the topic "SecYourFlow demo".
+SecYourFlow is a self-hosted workspace for assets, vulnerability records,
+remediation, risk decisions, suppliers, business impact analysis, and NIS2
+work. Its product site is https://secyourflow.shyenasec.com. AI assistance is
+optional, with redaction and human-review settings.
+
+# SecYourScan
+
+https://shyenasec.com/products/secyourscan
+
+SecYourScan provides public email and domain exposure checks and a breach
+directory. Organisation monitoring covers watchlist matches across leaks,
+internet-facing systems, brand abuse, threat actors, suppliers, and response.
+Monitor only assets owned by or authorised for the organisation.
+Product site: https://secyourscan.shyenasec.com.
 
 # Blog
 
