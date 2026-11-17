@@ -34,7 +34,7 @@ export const products = [
     name: "SAFE",
     category: "Endpoint AI detection and response",
     description:
-      "Check prompts to AI services on the device and stop risky ones before they leave.",
+      "Inspect supported AI requests on the device and apply policies to sensitive data.",
     logo: "/safe/safe-logo.png",
     href: "https://safe-website-flax.vercel.app/",
   },

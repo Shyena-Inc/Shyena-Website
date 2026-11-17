@@ -27,7 +27,7 @@ export default function FlagForgePage() {
       />
       <Capabilities
         title="Choose a problem to work through."
-        description="Challenges cover several security disciplines, with a range of difficulty levels and hints when you need a nudge."
+        description="For learners and security practitioners, challenges span multiple disciplines and difficulty levels, with hints available."
         items={[
           {
             title: "Web exploitation",

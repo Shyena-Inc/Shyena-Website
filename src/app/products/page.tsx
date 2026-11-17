@@ -22,12 +22,12 @@ export default function ProductsPage() {
         <section className="mx-auto max-w-7xl px-4 pt-10 pb-12 md:pt-16 lg:px-8">
           <p className="text-sm font-medium text-primary">Products by Shyena</p>
           <h1 className="mt-4 max-w-3xl text-4xl font-semibold tracking-tight text-balance md:text-5xl">
-            Tools for security work
-            <br className="hidden sm:block" /> and hands-on learning.
+            Security products for different challenges.
           </h1>
           <p className="mt-5 max-w-2xl leading-7 text-muted-foreground">
-            Check exposure, manage cyber risk, practice security skills, and
-            protect AI interactions. Explore each product to see how it works.
+            From external exposure and cyber risk to AI security and practical
+            learning, each Shyena product addresses a distinct part of
+            security work. Explore the capabilities and intended use of each.
           </p>
         </section>
         <section

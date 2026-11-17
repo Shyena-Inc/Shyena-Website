@@ -10,10 +10,8 @@ import {
   KeyRoundIcon,
   LayoutDashboardIcon,
   LockIcon,
-  MinusIcon,
   MonitorIcon,
   ScanSearchIcon,
-  ShieldCheckIcon,
   SlidersHorizontalIcon,
 } from "lucide-react";
 
@@ -30,34 +28,11 @@ import { pageMetadata, JsonLd, breadcrumbs } from "@/lib/seo";
 export const metadata: Metadata = pageMetadata({
   title: "SAFE",
   description:
-    "SAFE is an endpoint AI detection and response agent that checks prompts to AI services and stops credentials, personal data, and source code before they leave the device.",
+    "SAFE is an endpoint AI security agent designed to inspect AI requests and help prevent sensitive information from leaving a device.",
   path: "/products/safe",
 });
 
 const safeWebsite = "https://safe-website-flax.vercel.app/";
-
-const stats = [
-  {
-    label: "Structured data",
-    value: "13 of 14",
-    detail: "categories met the detection target",
-  },
-  {
-    label: "False alarms",
-    value: "5.9%",
-    detail: "benign prompts interrupted",
-  },
-  {
-    label: "Latency",
-    value: "28ms",
-    detail: "median to parse, detect, and decide",
-  },
-  {
-    label: "Governance",
-    value: "51",
-    detail: "controls mapped across six frameworks",
-  },
-];
 
 const steps = [
   {
@@ -82,7 +57,7 @@ const platform = [
   {
     Icon: MonitorIcon,
     title: "Endpoint agent",
-    body: "Runs in the background from boot and covers every browser, desktop app, and terminal on the machine. It cannot be stopped by a standard user.",
+    body: "Runs on the endpoint and is designed to inspect supported AI traffic from browsers, desktop apps, and terminals.",
   },
   {
     Icon: ScanSearchIcon,
@@ -97,7 +72,7 @@ const platform = [
   {
     Icon: LayoutDashboardIcon,
     title: "Management console",
-    body: "Activity flow, AI agent inventory, findings, and endpoints, with roles and an audit log. No prompt text is ever stored.",
+    body: "Activity flow, AI agent inventory, findings, and endpoints, with roles and an audit log. The console is designed to receive metadata without prompt text.",
   },
   {
     Icon: LockIcon,
@@ -114,13 +89,13 @@ const platform = [
 const privacy = [
   {
     Icon: EyeOffIcon,
-    title: "Only AI traffic is inspected",
-    body: "Banking, email, and everything else on the device passes through unread.",
+    title: "Focused on AI traffic",
+    body: "The agent is designed to inspect AI traffic rather than unrelated application traffic.",
   },
   {
     Icon: ScanSearchIcon,
-    title: "No prompt text in logs",
-    body: "Events record the decision, the kinds of data found, and the program. Nothing else.",
+    title: "Metadata in event logs",
+    body: "Events record metadata such as the decision, data categories, and source application.",
   },
   {
     Icon: FileLockIcon,
@@ -130,19 +105,8 @@ const privacy = [
   {
     Icon: KeyRoundIcon,
     title: "Signed, verified policy",
-    body: "Devices keep the last verified policy, so they never fall back to allowing everything.",
+    body: "Devices retain the last verified policy when an updated policy cannot be verified.",
   },
-];
-
-const measured = [
-  "Vendor key detectors for AWS, GitHub, Google, OpenAI, Anthropic, Slack, Stripe, JWT, and database URIs each scored 100% precision and recall.",
-  "All seven text request formats returned identical findings: browser, API, and IDE alike.",
-];
-
-const limits = [
-  "Names: 56% precision. The model reads code identifiers and non-English words as names.",
-  "Prompt injection: 67% precision and 59% recall, the next detector to improve.",
-  "Generic secrets and passwords: 68% and 74% recall.",
 ];
 
 const compareRows = [
@@ -150,31 +114,31 @@ const compareRows = [
     aspect: "Sees desktop apps, IDEs, and terminals",
     extension: "No",
     gateway: "If routed through it",
-    agent: "Yes",
+    agent: "For supported traffic",
   },
   {
     aspect: "Works off the company network",
     extension: "Yes",
-    gateway: "Needs a tunnel",
-    agent: "Yes",
+    gateway: "Depends on routing",
+    agent: "Depends on deployment",
   },
   {
     aspect: "Reads tool results an AI agent sends back",
     extension: "No",
     gateway: "Varies",
-    agent: "Yes",
+    agent: "For supported traffic",
   },
   {
     aspect: "Knows which program sent the request",
     extension: "Browser only",
     gateway: "No",
-    agent: "Yes",
+    agent: "For supported traffic",
   },
   {
     aspect: "Decides before the prompt leaves the device",
     extension: "Yes",
-    gateway: "After it leaves",
-    agent: "Yes",
+    gateway: "Depends on placement",
+    agent: "For supported traffic",
   },
 ];
 
@@ -192,8 +156,8 @@ const consoleTabs = [
           className="block h-auto w-full border-b border-border"
         />
         <p className="px-4 py-3 text-xs text-muted-foreground">
-          Activity: every request from endpoint to verdict, built from
-          metadata. The console never sees a prompt.
+          Activity: inspected requests from endpoint to verdict, built from
+          metadata. The console is designed to receive metadata without prompt text.
         </p>
       </div>
     ),
@@ -211,7 +175,7 @@ const consoleTabs = [
           className="block h-auto w-full border-b border-border"
         />
         <p className="px-4 py-3 text-xs text-muted-foreground">
-          AI agents: every program seen using an AI service, with its risk,
+          AI agents: observed programs using AI services, with their risk,
           detections, and endpoints.
         </p>
       </div>
@@ -253,11 +217,11 @@ export default function SafePage() {
         eyebrow="Product · AI detection and response"
         title={
           <>
-            Prompts are checked before{" "}
+            Supported AI requests are checked before{" "}
             <span className="text-primary">they leave the device.</span>
           </>
         }
-        description="SAFE checks every prompt sent to an AI service and stops credentials, personal data, and source code before they leave."
+        description="SAFE is designed to inspect AI requests on the device and help security teams apply policies to sensitive data."
       />
 
       <section className="border-y border-border bg-muted/20 py-16">
@@ -295,14 +259,13 @@ export default function SafePage() {
               What SAFE does
             </h2>
             <p className="mt-3 leading-7 text-muted-foreground">
-              One agent on every device checks each prompt sent to an AI
-              service, in any browser, desktop app, or terminal. Risky prompts
-              stop at the device; clean ones pass.
+              The endpoint agent is designed to inspect supported AI traffic from
+              browsers, desktop applications, and terminals, then apply an
+              allow, warn, or block policy.
             </p>
             <p className="mt-3 leading-7 text-muted-foreground">
-              Everything that decides runs on the device. The server collects
-              metadata and distributes policy, and it is never on a
-              request&#39;s path.
+              Detection decisions are designed to run on the device. The management
+              server distributes policy and collects event metadata.
             </p>
             <Button asChild className="mt-7 rounded-full">
               <a
@@ -352,56 +315,16 @@ export default function SafePage() {
       <section className="border-t border-border bg-muted/20 py-16 lg:py-20">
         <div className="mx-auto max-w-6xl px-4 lg:px-8">
           <h2 className="max-w-2xl text-2xl font-semibold tracking-tight sm:text-3xl">
-            Published results, with the limits stated.
+            Evaluating SAFE
           </h2>
-          <div className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-            {stats.map((stat) => (
-              <div key={stat.label} className="rounded-2xl border bg-card p-5">
-                <p className="text-sm text-muted-foreground">{stat.label}</p>
-                <p className="mt-2 text-3xl font-semibold tracking-tight">
-                  {stat.value}
-                </p>
-                <p className="mt-2 text-sm leading-6 text-muted-foreground">
-                  {stat.detail}
-                </p>
-              </div>
-            ))}
-          </div>
-          <div className="mt-8 grid gap-8 md:grid-cols-2 lg:gap-16">
-            <div>
-              <h3 className="font-semibold">What measured well</h3>
-              <ul className="mt-3 space-y-2 text-sm leading-6 text-muted-foreground">
-                {measured.map((item) => (
-                  <li key={item} className="flex gap-2">
-                    <ShieldCheckIcon
-                      aria-hidden
-                      className="mt-0.5 size-4 shrink-0 text-primary"
-                    />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <h3 className="font-semibold">Where it falls short</h3>
-              <ul className="mt-3 space-y-2 text-sm leading-6 text-muted-foreground">
-                {limits.map((item) => (
-                  <li key={item} className="flex gap-2">
-                    <MinusIcon
-                      aria-hidden
-                      className="mt-1.5 size-4 shrink-0 text-primary/60"
-                    />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-          <p className="mt-6 max-w-3xl text-xs leading-5 text-muted-foreground">
-            Numbers come from SAFE&#39;s published results on a held-out test
-            split of 1,371 synthetic prompts, written without access to the
-            detector. Each vendor key category had fewer than 20 test examples.
+          <p className="mt-4 max-w-3xl leading-7 text-muted-foreground">
+            SAFE has been evaluated using synthetic prompts. Detection results
+            can vary by data type and environment; teams should assess coverage,
+            false positives, and bypass resistance against their own use cases.
           </p>
+          <a href={safeWebsite} target="_blank" rel="noopener noreferrer" className="mt-5 inline-block font-medium text-primary underline underline-offset-4">
+            Visit the SAFE website
+          </a>
         </div>
       </section>
 
@@ -426,8 +349,8 @@ export default function SafePage() {
             ))}
           </div>
           <p className="mt-8 max-w-2xl text-sm leading-6 text-muted-foreground">
-            Only AI traffic is inspected. Banking, email, and everything else
-            on the device pass through unread.
+            The agent is designed to inspect AI traffic while leaving unrelated
+            application traffic outside its inspection scope.
           </p>
         </div>
       </section>
@@ -487,8 +410,8 @@ export default function SafePage() {
           <BlurFade className="mt-10 overflow-x-auto rounded-2xl border">
             <table className="w-full min-w-[40rem] text-sm">
               <caption className="sr-only">
-                Typical properties of browser extensions, network gateways, and
-                the SAFE endpoint agent.
+                Illustrative comparison. Coverage varies by configuration, supported
+                traffic, and deployment.
               </caption>
               <thead>
                 <tr className="border-b bg-muted/50 text-left">

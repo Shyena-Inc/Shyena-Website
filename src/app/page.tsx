@@ -29,17 +29,16 @@ import { BackgroundBeams } from "@/components/velora/background-beams";
 import { SpotlightCard } from "@/components/velora/spotlight-card";
 import { Marquee } from "@/components/velora/marquee";
 import { BackgroundBoxes } from "@/components/velora/background-boxes";
-import { FlipWords } from "@/components/velora/flip-words";
 import { PointerHighlight } from "@/components/velora/pointer-highlight";
 import { JsonLd, pageMetadata, publisher } from "@/lib/seo";
 import { siteConfig } from "@/lib/site-config";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Cybersecurity assessments for connected systems",
+  title: "Cybersecurity products and security engineering",
   absoluteTitle:
-    "Shyena Technologies Pvt. Ltd. | Cybersecurity assessments for connected systems",
+    "Shyena Technologies Pvt. Ltd. | Cybersecurity Products and Security Engineering",
   description:
-    "Hardware, firmware, connected device, and OT / ICS security assessments from Shyena Technologies Pvt. Ltd., based in Lalitpur, Nepal and serving organizations in Nepal and international markets.",
+    "Cybersecurity products, research, and security engineering from Shyena Technologies, including exposure monitoring, risk management, AI security, and assessments.",
   path: "/",
 });
 
@@ -154,34 +153,26 @@ export default function HomePage() {
         <div className="relative mx-auto grid max-w-7xl items-center gap-10 px-4 pb-10 md:grid-cols-[.96fr_1.04fr] md:gap-8 lg:gap-14 lg:px-8 lg:pb-14">
           <div className="relative z-10 py-2">
             <div className="text-xs font-semibold uppercase tracking-[0.15em] text-primary">
-              Cybersecurity services
+              Cybersecurity products, research & security engineering
             </div>
             <h1 className="mt-6 max-w-2xl text-4xl font-semibold leading-[1.08] tracking-[-0.045em] text-balance sm:text-5xl lg:text-[3rem] xl:text-[3.8rem]">
-              Security assessments for{" "}
+              Cybersecurity products. {" "}
               <PointerHighlight
                 rectangleClassName="border-primary/70 bg-primary/5"
                 pointerClassName="text-primary"
               >
-                connected systems.
+                Security engineering.
               </PointerHighlight>
             </h1>
             <p className="mt-6 max-w-xl text-base leading-7 text-muted-foreground sm:text-lg sm:leading-8">
-              Independent testing for hardware, firmware, connected devices, and
-              OT / ICS environments. Based in Lalitpur, Nepal; serving
-              organizations in Nepal and international markets.
-            </p>
-            <p className="mt-4 text-sm text-muted-foreground">
-              Start with:{" "}
-              <FlipWords
-                words={["the asset", "the operating context", "the scope"]}
-                duration={1500}
-                className="font-semibold text-foreground"
-              />
+              From exposure monitoring and cyber risk to AI security and hands-on
+              learning, we build products and assess the systems organisations
+              depend on. Our specialties include hardware and OT / ICS security.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Button asChild className="h-12 rounded-none px-6">
-                <Link href="/contact">
-                  Discuss an assessment <ArrowUpRightIcon className="size-4" />
+                <Link href="/products">
+                  Explore products <ArrowUpRightIcon className="size-4" />
                 </Link>
               </Button>
               <Button
@@ -190,7 +181,7 @@ export default function HomePage() {
                 variant="outline"
               >
                 <Link href="#services">
-                  View service lines <ArrowRightIcon className="size-4" />
+                  Explore services <ArrowRightIcon className="size-4" />
                 </Link>
               </Button>
             </div>
@@ -220,6 +211,32 @@ export default function HomePage() {
                 </span>
               ))}
             </Marquee>
+          </div>
+        </div>
+      </section>
+
+      <section className="relative py-20 md:py-28">
+        <div className="mx-auto max-w-7xl px-4 lg:px-8">
+          <div className="flex flex-wrap items-end justify-between gap-5">
+            <div className="max-w-2xl">
+              <p className="text-sm font-medium text-primary">Products</p>
+              <h2 className="mt-3 text-3xl font-semibold tracking-tight text-balance sm:text-4xl">
+                Four products. Different security needs.
+              </h2>
+              <p className="mt-4 max-w-2xl leading-7 text-muted-foreground">
+                Discover external exposure with SecYourScan, manage risk with
+                SecYourFlow, apply AI security policies with SAFE, and build
+                practical skills with FlagForge.
+              </p>
+            </div>
+            <Button asChild variant="ghost" className="rounded-none">
+              <Link href="/products">
+                View all products <ArrowRightIcon className="size-4" />
+              </Link>
+            </Button>
+          </div>
+          <div className="mt-10">
+            <ProductCards headingLevel={3} />
           </div>
         </div>
       </section>
@@ -305,31 +322,6 @@ export default function HomePage() {
             <p className="mt-3 text-xl font-medium leading-8 text-foreground text-balance sm:text-2xl">
               Clear scope. Agreed constraints. Findings teams can act on.
             </p>
-            <p className="mt-4 text-sm leading-6 text-muted-foreground">
-              This describes the intended assessment process; it is not a
-              customer testimonial or performance claim.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section className="relative py-20 md:py-28">
-        <div className="mx-auto max-w-7xl px-4 lg:px-8">
-          <div className="flex flex-wrap items-end justify-between gap-5">
-            <div className="max-w-2xl">
-              <p className="text-sm font-medium text-primary">Products</p>
-              <h2 className="mt-3 text-3xl font-semibold tracking-tight text-balance sm:text-4xl">
-                Tools for practice and security work.
-              </h2>
-            </div>
-            <Button asChild variant="ghost" className="rounded-none">
-              <Link href="/products">
-                View all products <ArrowRightIcon className="size-4" />
-              </Link>
-            </Button>
-          </div>
-          <div className="mt-10">
-            <ProductCards headingLevel={3} />
           </div>
         </div>
       </section>
