@@ -28,7 +28,7 @@ export default function SecYourScanPage() {
       />
       <Capabilities
         title="From exposure to response."
-        description="Monitor your domains, staff emails, brand, and suppliers. Review findings in context and connect them to follow-up work."
+        description="For security teams monitoring authorised assets, connect exposure findings to investigation and follow-up."
         items={[
           {
             title: "Leaks and the dark web",

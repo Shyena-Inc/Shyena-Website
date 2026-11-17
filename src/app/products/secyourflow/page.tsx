@@ -28,7 +28,7 @@ export default function SecYourFlowPage() {
       />
       <Capabilities
         title="A workspace for security operations."
-        description="Keep the asset, finding, decision, and follow-up connected, with owners and evidence beside the work."
+        description="For security and risk teams, connect assets, findings, decisions, owners, and evidence in one workspace."
         items={[
           {
             title: "Assets and vulnerabilities",
