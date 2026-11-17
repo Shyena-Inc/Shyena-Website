@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { ProductCards } from "@/components/products/product-parts";
+import { ProductLogo } from "@/components/products/product-parts";
 import Link from "next/link";
 import {
   ArrowRightIcon,
@@ -23,15 +23,15 @@ import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { CtaVortex } from "@/components/company/cta-vortex";
 import { GlobalGlobe } from "@/components/company/global-globe";
-import { BentoGrid } from "@/components/velora/bento-grid";
 import { BlurFade } from "@/components/velora/blur-fade";
-import { BackgroundBeams } from "@/components/velora/background-beams";
 import { SpotlightCard } from "@/components/velora/spotlight-card";
+import { BackgroundBeams } from "@/components/velora/background-beams";
 import { Marquee } from "@/components/velora/marquee";
 import { BackgroundBoxes } from "@/components/velora/background-boxes";
 import { PointerHighlight } from "@/components/velora/pointer-highlight";
 import { JsonLd, pageMetadata, publisher } from "@/lib/seo";
 import { siteConfig } from "@/lib/site-config";
+import { products } from "@/lib/products";
 
 export const metadata: Metadata = pageMetadata({
   title: "Cybersecurity products and security engineering",
@@ -46,58 +46,47 @@ const services = [
   {
     id: "service-hardware-vapt",
     name: "Hardware VAPT",
-    description:
-      "Review hardware, firmware, and exposed interfaces within an agreed assessment scope.",
     href: "/contact?topic=Hardware%20VAPT",
-    cta: "Discuss hardware testing",
     icon: <CpuIcon />,
   },
   {
     id: "service-ot-ics",
     name: "OT / ICS assessment",
-    description:
-      "Assess industrial control environments, including PLC, DCS, and SCADA components.",
     href: "/contact?topic=OT%20%2F%20ICS%20assessment",
-    cta: "Discuss OT / ICS security",
     icon: <FactoryIcon />,
   },
   {
     id: "service-iot-security",
     name: "IoT security testing",
-    description:
-      "Review device interfaces, firmware, companion applications, and connected services as applicable.",
     href: "/contact?topic=IoT%20security%20testing",
-    cta: "Discuss IoT security",
     icon: <NetworkIcon />,
   },
   {
     id: "service-scada-testing",
     name: "SCADA network testing",
-    description:
-      "Test protocol exposure, network segmentation, and access controls in a controlled engagement.",
     href: "/contact?topic=SCADA%20network%20testing",
-    cta: "Discuss SCADA testing",
     icon: <SirenIcon />,
   },
   {
     id: "service-red-team",
     name: "Red team operations",
-    description:
-      "Exercise agreed attack paths across connected IT and OT environments with operating constraints in scope.",
     href: "/contact?topic=Red%20team%20operations",
-    cta: "Discuss a red team exercise",
     icon: <ShieldCheckIcon />,
   },
   {
     id: "service-risk-advisory",
     name: "Compliance & risk advisory",
-    description:
-      "Identify security gaps and give teams a practical, prioritized path for risk treatment.",
     href: "/contact?topic=Compliance%20and%20risk%20advisory",
-    cta: "Discuss risk advisory",
     icon: <FileCheck2Icon />,
   },
 ];
+
+const solutionTitles: Record<(typeof products)[number]["slug"], string> = {
+  secyourscan: "Find external exposure",
+  secyourflow: "Manage cyber risk",
+  safe: "Protect AI interactions",
+  flagforge: "Build security skills",
+};
 
 const focusAreas = [
   "Hardware & firmware",
@@ -152,10 +141,7 @@ export default function HomePage() {
       <section className="relative isolate overflow-hidden border-b border-border/70 pt-24 pb-10 sm:pt-28 md:pb-14 lg:pt-28">
         <div className="relative mx-auto grid max-w-7xl items-center gap-10 px-4 pb-10 md:grid-cols-[.96fr_1.04fr] md:gap-8 lg:gap-14 lg:px-8 lg:pb-14">
           <div className="relative z-10 py-2">
-            <div className="text-xs font-semibold uppercase tracking-[0.15em] text-primary">
-              Cybersecurity products, research & security engineering
-            </div>
-            <h1 className="mt-6 max-w-2xl text-4xl font-semibold leading-[1.08] tracking-[-0.045em] text-balance sm:text-5xl lg:text-[3rem] xl:text-[3.8rem]">
+            <h1 className="max-w-2xl text-4xl font-semibold leading-[1.08] tracking-[-0.045em] text-balance sm:text-5xl lg:text-[3rem] xl:text-[3.8rem]">
               Cybersecurity products. {" "}
               <PointerHighlight
                 rectangleClassName="border-primary/70 bg-primary/5"
@@ -215,88 +201,79 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="relative py-20 md:py-28">
-        <div className="mx-auto max-w-7xl px-4 lg:px-8">
-          <div className="flex flex-wrap items-end justify-between gap-5">
-            <div className="max-w-2xl">
-              <p className="text-sm font-medium text-primary">Products</p>
-              <h2 className="mt-3 text-3xl font-semibold tracking-tight text-balance sm:text-4xl">
-                Four products. Different security needs.
-              </h2>
-              <p className="mt-4 max-w-2xl leading-7 text-muted-foreground">
-                Discover external exposure with SecYourScan, manage risk with
-                SecYourFlow, apply AI security policies with SAFE, and build
-                practical skills with FlagForge.
-              </p>
-            </div>
-            <Button asChild variant="ghost" className="rounded-none">
-              <Link href="/products">
-                View all products <ArrowRightIcon className="size-4" />
-              </Link>
-            </Button>
-          </div>
-          <div className="mt-10">
-            <ProductCards headingLevel={3} />
-          </div>
-        </div>
-      </section>
-
       <section
         id="services"
-        className="relative isolate scroll-mt-24 overflow-hidden border-y border-border/60 bg-muted/20 py-20 md:py-28"
+        className="relative isolate scroll-mt-24 overflow-hidden border-b border-border/60 py-20 md:py-28"
       >
         <BackgroundBoxes
           rows={20}
           cols={32}
           cellSize={44}
           fade={1500}
-          className="opacity-[0.12] [mask-image:linear-gradient(to_bottom,transparent,black_18%,black_78%,transparent)]"
+          className="opacity-[0.08] [mask-image:linear-gradient(to_bottom,transparent,black_18%,black_78%,transparent)]"
         />
         <div className="relative z-10 mx-auto max-w-7xl px-4 lg:px-8">
-          <BlurFade>
+          <div className="max-w-3xl">
+            <p className="text-sm font-medium text-primary">Products and services</p>
+            <h2 className="mt-3 text-3xl font-semibold tracking-tight text-balance sm:text-4xl lg:text-5xl">
+              Security work, from exposure to action.
+            </h2>
+            <p className="mt-4 max-w-2xl leading-7 text-muted-foreground">
+              Explore products for exposure monitoring, risk management, AI security,
+              and practical learning. Our team also assesses hardware, connected
+              devices, and operational environments.
+            </p>
+          </div>
+          <div className="mt-10 grid gap-4 sm:grid-cols-2">
+            {products.map((solution) => (
+              <SpotlightCard
+                key={solution.slug}
+                className="h-full transition-colors hover:border-primary focus-within:border-primary [&>div:last-child]:h-full"
+              >
+                <Link
+                  href={`/products/${solution.slug}`}
+                  className="group flex h-full flex-col p-5 focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-primary sm:p-7"
+                >
+                  <div
+                    aria-hidden="true"
+                    className="[&>div]:h-40 [&>div]:border-0 [&>div]:bg-muted/30 sm:[&>div]:h-44 [&_img[src*=secyourscan-light]]:scale-[.65] [&_img[src*=secyourflow-stacked-light]]:scale-[.85]"
+                  >
+                    <ProductLogo product={solution} stacked />
+                  </div>
+                  <div className="mt-6 flex flex-1 flex-col">
+                    <p className="text-xs font-semibold tracking-wide text-primary">{solution.category}</p>
+                    <div className="mt-2 flex items-start justify-between gap-4">
+                      <h3 className="text-2xl font-semibold tracking-tight sm:text-3xl">{solutionTitles[solution.slug]}</h3>
+                      <ArrowUpRightIcon aria-hidden="true" className="mt-1 size-5 shrink-0 text-primary transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 motion-reduce:transition-none" />
+                    </div>
+                    <p className="mt-3 max-w-xl text-sm leading-6 text-muted-foreground sm:text-base sm:leading-7">{solution.description}</p>
+                    <span className="mt-auto pt-7 text-sm font-semibold text-primary">Explore {solution.name}</span>
+                  </div>
+                </Link>
+              </SpotlightCard>
+            ))}
+          </div>
+          <div className="mt-16 border-t border-border pt-8">
             <div className="max-w-2xl">
-              <p className="text-sm font-medium text-primary">Services</p>
-              <h2 className="mt-3 text-3xl font-semibold tracking-tight text-balance sm:text-4xl lg:text-5xl">
-                Security work for software, devices, and operations.
-              </h2>
-              <p className="mt-4 max-w-xl leading-7 text-muted-foreground">
-                Assessment and advisory work shaped around the systems in scope
-                and the way they are used.
+              <h3 className="text-2xl font-semibold tracking-tight">Security assessments and advisory</h3>
+              <p className="mt-3 leading-7 text-muted-foreground">
+                Discuss the systems, scope, and operating constraints with our team.
               </p>
             </div>
-          </BlurFade>
-          <BlurFade delay={0.12}>
-            <BentoGrid className="mt-10 auto-rows-auto grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="mt-6 grid gap-x-8 sm:grid-cols-2 lg:grid-cols-3">
               {services.map((service) => (
-                <SpotlightCard
+                <Link
                   key={service.id}
-                  className="h-full rounded-none p-5 sm:p-6"
+                  id={service.id}
+                  href={service.href}
+                  className="group flex scroll-mt-32 items-center justify-between gap-4 border-b border-border py-4 text-sm font-medium hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
                 >
-                  <Link
-                    id={service.id}
-                    href={service.href}
-                    className="group flex h-full min-h-48 scroll-mt-32 flex-col rounded-none focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
-                  >
-                    <div className="flex items-start justify-between gap-4">
-                      <span className="grid size-11 place-items-center rounded-none border border-primary/20 bg-primary/8 text-primary [&_svg]:size-5">
-                        {service.icon}
-                      </span>
-                    </div>
-                    <h3 className="mt-7 text-lg font-semibold tracking-tight">
-                      {service.name}
-                    </h3>
-                    <p className="mt-2 text-sm leading-6 text-muted-foreground">
-                      {service.description}
-                    </p>
-                    <span className="mt-auto flex items-center gap-1 pt-5 text-sm font-medium text-primary">
-                      {service.cta}
-                      <ArrowRightIcon className="size-4 transition-transform group-hover:translate-x-0.5 motion-reduce:transition-none" />
-                    </span>
-                  </Link>
-                </SpotlightCard>
+                  <span className="flex items-center gap-3"><span aria-hidden="true" className="[&_svg]:size-4 [&_svg]:text-primary">{service.icon}</span>{service.name}</span>
+                  <ArrowRightIcon aria-hidden="true" className="size-4 shrink-0 transition-transform group-hover:translate-x-0.5 motion-reduce:transition-none" />
+                </Link>
               ))}
-            </BentoGrid>
-          </BlurFade>
+            </div>
+          </div>
         </div>
       </section>
 

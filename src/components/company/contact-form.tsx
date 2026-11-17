@@ -175,7 +175,7 @@ export function ContactForm() {
             className="text-primary underline underline-offset-2"
             href="/privacy"
           >
-            privacy notice draft
+            privacy notice
           </a>
           .
         </p>
