@@ -15,6 +15,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ["/products/secyourflow", 0.6],
     ["/products/safe", 0.6],
     ["/contact", 0.6],
+    ["/privacy", 0.3],
+    ["/terms", 0.3],
     ["/blog", 0.6],
   ] as const;
   const staticPages: MetadataRoute.Sitemap = pages.map(([path, priority]) => ({

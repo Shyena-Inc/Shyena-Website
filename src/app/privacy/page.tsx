@@ -6,11 +6,10 @@ import { PageHeader } from "@/components/page-header";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Privacy notice - review draft",
+  title: "Privacy notice",
   description:
-    "Review draft for the Shyena Technologies Pvt. Ltd. website privacy notice.",
+    "How Shyena Technologies Pvt. Ltd. handles information collected through its website.",
   path: "/privacy",
-  noindex: true,
 });
 
 export default function PrivacyPage() {
@@ -20,16 +19,9 @@ export default function PrivacyPage() {
       <PageHeader
         eyebrow="Privacy"
         title="Privacy notice"
-        description="Review draft for Shyena Technologies Pvt. Ltd."
+        description="How we handle information collected through this website."
       />
       <article className="mx-auto max-w-3xl space-y-10 px-4 pb-28 text-muted-foreground lg:px-8">
-        <aside className="border-l-2 border-primary bg-muted/30 p-5 text-foreground" role="note">
-          <h2 className="font-semibold">Review draft - not approved for publication</h2>
-          <p className="mt-2 text-sm leading-6 text-muted-foreground">
-            This notice requires legal review and confirmation of the services,
-            retention periods, and consent settings used at launch.
-          </p>
-        </aside>
         <section className="space-y-3">
           <h2 className="text-xl font-semibold text-foreground">Who we are</h2>
           <p className="leading-7">Shyena Technologies Pvt. Ltd. operates this company website. We are based at Tikathali - 5, Lalitpur, Nepal. For privacy questions, email <a className="text-primary underline underline-offset-4" href="mailto:whois@shyenasec.com">whois@shyenasec.com</a>.</p>
@@ -41,17 +33,21 @@ export default function PrivacyPage() {
         </section>
         <section className="space-y-3">
           <h2 className="text-xl font-semibold text-foreground">Technical data, cookies, and analytics</h2>
-          <p className="leading-7">The website stores your theme preference in your browser. Hosting and network providers may process technical information, such as IP addresses and request logs, to deliver and operate the site. The providers and their retention settings must be confirmed before this notice is final.</p>
-          <p className="leading-7">The site can load Google Analytics when a measurement ID is configured. Its use, data collection, retention settings, and any consent controls must be confirmed before analytics is enabled for visitors where consent is required.</p>
+          <p className="leading-7">The website stores your theme preference in your browser. Hosting and network providers may process technical information, such as IP addresses and request logs, to deliver and operate the site.</p>
+          <p className="leading-7">If enabled, Google Analytics collects information about use of the website, such as pages visited and device or browser information. Google may use cookies or similar technologies. You can control cookies through your browser settings.</p>
         </section>
         <section className="space-y-3">
           <h2 className="text-xl font-semibold text-foreground">Service providers and international transfers</h2>
-          <p className="leading-7">Providers used to operate the website or handle inquiries may process information on our behalf. Their locations and any safeguards for transfers across borders depend on the services configured at launch and must be reviewed before publication.</p>
+          <p className="leading-7">Service providers may process information to host and operate the website, receive inquiries, and, if enabled, measure website use. They may process information outside Nepal. Contact us for details of the providers and any safeguards applicable to international transfers.</p>
         </section>
         <section className="space-y-3">
           <h2 className="text-xl font-semibold text-foreground">Retention and your choices</h2>
-          <p className="leading-7">Retention periods for inquiries and technical records have not yet been confirmed. Depending on applicable law, you may have rights to request access, correction, deletion, or other action concerning your personal information. Email us with your request; we may need information to verify your identity.</p>
-          <p className="leading-7">Product websites may collect different information and may have their own privacy notices. Review those notices when you use those products.</p>
+          <p className="leading-7">Contact us for information about how long inquiry and technical records are retained. Depending on applicable law, you may request access, correction, deletion, or other action concerning your personal information. Email us with your request; we may need information to verify your identity.</p>
+          <p className="leading-7">You may also have the right to complain to a relevant authority under applicable law. Product websites may collect different information and may have their own privacy notices.</p>
+        </section>
+        <section className="space-y-3">
+          <h2 className="text-xl font-semibold text-foreground">Changes to this notice</h2>
+          <p className="leading-7">We may update this notice as our website or practices change. The current version will be available on this page.</p>
         </section>
       </article>
       <SiteFooter />

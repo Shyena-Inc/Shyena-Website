@@ -6,11 +6,10 @@ import { PageHeader } from "@/components/page-header";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Website terms - review draft",
+  title: "Website terms",
   description:
-    "Review draft of website terms for Shyena Technologies Pvt. Ltd.",
+    "Terms for using the Shyena Technologies Pvt. Ltd. website.",
   path: "/terms",
-  noindex: true,
 });
 
 export default function TermsPage() {
@@ -20,16 +19,12 @@ export default function TermsPage() {
       <PageHeader
         eyebrow="Terms"
         title="Website terms"
-        description="Review draft for Shyena Technologies Pvt. Ltd."
+        description="Terms for using the Shyena Technologies website."
       />
       <article className="mx-auto max-w-3xl space-y-10 px-4 pb-28 text-muted-foreground lg:px-8">
-        <aside className="border-l-2 border-primary bg-muted/30 p-5 text-foreground" role="note">
-          <h2 className="font-semibold">Review draft - not approved for publication</h2>
-          <p className="mt-2 text-sm leading-6 text-muted-foreground">These proposed website terms require legal review before publication. Product and service agreements may apply separately.</p>
-        </aside>
         <section className="space-y-3">
           <h2 className="text-xl font-semibold text-foreground">About these terms</h2>
-          <p className="leading-7">These draft terms concern the company website of Shyena Technologies Pvt. Ltd., based at Tikathali - 5, Lalitpur, Nepal. The website provides information about our company, services, and products. Contact us at <a className="text-primary underline underline-offset-4" href="mailto:whois@shyenasec.com">whois@shyenasec.com</a> with questions.</p>
+          <p className="leading-7">These terms concern the company website of Shyena Technologies Pvt. Ltd., based at Tikathali - 5, Lalitpur, Nepal. The website provides information about our company, services, and products. Contact us at <a className="text-primary underline underline-offset-4" href="mailto:whois@shyenasec.com">whois@shyenasec.com</a> with questions.</p>
         </section>
         <section className="space-y-3">
           <h2 className="text-xl font-semibold text-foreground">Using the website</h2>
@@ -48,8 +43,12 @@ export default function TermsPage() {
           <p className="leading-7">Descriptions on this website are informational. Product licences, access conditions, service scope, fees, and other obligations should be set out in the applicable product terms or written agreement.</p>
         </section>
         <section className="space-y-3">
-          <h2 className="text-xl font-semibold text-foreground">Before publication</h2>
-          <p className="leading-7">Legal review must confirm the effective date, governing law, dispute process, liability provisions, and any mandatory consumer protections before these terms are final.</p>
+          <h2 className="text-xl font-semibold text-foreground">Availability and liability</h2>
+          <p className="leading-7">We may update or interrupt the website. Information is provided for general purposes, and you should confirm that it is suitable for your circumstances. Nothing in these terms limits rights or remedies that cannot be excluded under applicable law.</p>
+        </section>
+        <section className="space-y-3">
+          <h2 className="text-xl font-semibold text-foreground">Changes and contact</h2>
+          <p className="leading-7">We may update these terms as the website or our services change. The current version will be available on this page. Questions can be sent to <a className="text-primary underline underline-offset-4" href="mailto:whois@shyenasec.com">whois@shyenasec.com</a>.</p>
         </section>
       </article>
       <SiteFooter />
