@@ -40,15 +40,8 @@ function Logo() {
 export function SiteHeader() {
   return (
     <div className="fixed inset-x-0 top-0 z-50">
-      <div className="border-b border-border/70 bg-muted/70 text-muted-foreground backdrop-blur">
-        <div className="mx-auto flex min-h-8 max-w-7xl items-center justify-between gap-3 px-4 py-1 text-[10px] font-medium tracking-wide sm:text-xs lg:px-8">
-          <p className="min-w-0 truncate">
-            Based in Lalitpur, Nepal{" "}
-            <span aria-hidden className="px-1.5">
-              /
-            </span>
-            Serving Nepal and international markets
-          </p>
+      <div className="hidden border-b border-border/70 bg-muted/70 text-muted-foreground backdrop-blur sm:block">
+        <div className="mx-auto flex min-h-8 max-w-7xl items-center justify-end gap-3 px-4 py-1 text-[10px] font-medium tracking-wide sm:text-xs lg:px-8">
           <a
             className="hidden shrink-0 items-center gap-2 transition-colors hover:text-foreground sm:inline-flex"
             href={`mailto:${siteConfig.email}`}
