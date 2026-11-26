@@ -43,8 +43,7 @@ public FlagForge platform).
 
 https://shyenasec.com/
 
-Headline: Shyena Technologies Pvt. Ltd., cybersecurity assessments for
-connected systems.
+Headline: Cybersecurity products. Security engineering.
 
 The page introduces six service areas:
 
@@ -82,7 +81,7 @@ Lists the company's security products built around practical cybersecurity
 learning and security workflows:
 
 - FlagForge (public)
-- SAFE (open source)
+- SAFE (endpoint AI detection and response)
 - SecYourFlow (self-hosted cyber risk workspace)
 - SecYourScan (breach and exposure monitoring)
 
@@ -103,39 +102,11 @@ supports flag submissions, hints, points, a leaderboard, and GRC lessons.
 
 https://shyenasec.com/products/safe
 
-SAFE (Sensitive-data and Attack Filtering Engine) is an endpoint AI detection
-and response agent. Prompts to AI services are checked on the device, and
-risky ones are stopped before they leave. Activity is observed from request
-metadata, so console visibility covers requests while prompt contents stay
-local.
+SAFE inspects supported AI requests on protected endpoints and applies an
+allow, warn, or block policy. Detection varies by data type and environment.
+SAFE has been evaluated using synthetic prompts.
 
-How SAFE works, in four steps:
-
-1. Capture: request activity is observed on the endpoint.
-2. Inspect: requests are screened against sensitive-data and attack
-   categories.
-3. Decide: each request receives an allow, warn, or block decision.
-4. Stop: risky prompts are stopped before they leave the device.
-
-SAFE's published held-out test document, which uses synthetic data, reports:
-
-- Structured data: 13 of 14 categories met the detection target.
-- False alarms: 5.9% of benign prompts interrupted.
-- Latency: 28ms median to parse, detect, and decide.
-- Governance: 51 controls across six frameworks.
-- Vendor key detectors for AWS, GitHub, Google, OpenAI, Anthropic, Slack,
-  Stripe, JWT, and database URIs each scored 100% precision and recall.
-
-Stated limits from the same document: names score 56% precision (the model
-reads code identifiers and non-English words as names), prompt injection
-scores 67% precision and 59% recall, and generic secrets and passwords score
-68% and 74% recall.
-
-The page compares SAFE deployment modes: a browser extension at the browser,
-a gateway at the network, and an endpoint agent on the device, with a set of
-business and error-path rules to apply controls.
-
-More information: https://safe-website-flax.vercel.app/
+More information: https://safe.shyenasec.com/
 Inquiries: whois@shyenasec.com with the subject "SAFE inquiry".
 
 # SecYourFlow

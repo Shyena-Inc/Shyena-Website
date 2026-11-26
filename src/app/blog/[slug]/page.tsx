@@ -9,13 +9,19 @@ import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { Markdown } from "../markdown";
 import { getJournalPost, getJournalPosts } from "../content";
-import { pageMetadata, JsonLd, breadcrumbs } from "@/lib/seo";
+import { pageMetadata, JsonLd, breadcrumbs, publisher } from "@/lib/seo";
 import { siteConfig } from "@/lib/site-config";
 
 export async function generateStaticParams() {
   const posts = await getJournalPosts();
   return posts.map(({ slug }) => ({ slug }));
 }
+
+const relatedServices: Record<string, { anchor: string; name: string }> = {
+  "hardware-vapt-review": { anchor: "service-hardware-vapt", name: "Hardware VAPT" },
+  "iot-device-security-review": { anchor: "service-iot-security", name: "IoT security testing" },
+  "ot-security-assessment-scope": { anchor: "service-ot-ics", name: "OT / ICS assessment" },
+};
 
 type ArticlePageProps = { params: Promise<{ slug: string }> };
 
@@ -45,17 +51,14 @@ export default async function JournalArticlePage({ params }: ArticlePageProps) {
   const post = await getJournalPost(slug);
   if (!post) notFound();
 
+  const service = relatedServices[post.slug];
   const article = {
     "@type": "Article",
     headline: post.title,
     description: post.description,
     datePublished: post.date,
     author: { "@type": "Organization", name: siteConfig.name },
-    publisher: {
-      "@type": "Organization",
-      name: siteConfig.name,
-      url: siteConfig.url,
-    },
+    publisher,
     mainEntityOfPage: `${siteConfig.url}/blog/${post.slug}`,
   };
 
@@ -63,11 +66,14 @@ export default async function JournalArticlePage({ params }: ArticlePageProps) {
     <main className="relative">
       <SiteHeader />
       <JsonLd
-        data={breadcrumbs([
-          { name: "Home", path: "/" },
-          { name: "Insights", path: "/blog" },
-          { name: post.title, path: `/blog/${post.slug}` },
-        ])}
+        data={[
+          article,
+          breadcrumbs([
+            { name: "Home", path: "/" },
+            { name: "Insights", path: "/blog" },
+            { name: post.title, path: `/blog/${post.slug}` },
+          ]),
+        ]}
       />
       <article className="mx-auto max-w-3xl px-4 pt-32 pb-24 md:pt-40 lg:px-8">
         <Link
@@ -93,6 +99,11 @@ export default async function JournalArticlePage({ params }: ArticlePageProps) {
           <Markdown source={post.body} />
         </div>
         <footer className="mt-14 border-t border-border/60 pt-7">
+          {service && (
+            <Link href={`/#${service.anchor}`} className="mb-3 inline-block text-sm text-primary underline underline-offset-2">
+              Explore Shyena’s {service.name} service
+            </Link>
+          )}
           <p className="text-sm text-muted-foreground">
             Questions about this topic? Email{" "}
             <a
@@ -111,12 +122,6 @@ export default async function JournalArticlePage({ params }: ArticlePageProps) {
           </Button>
         </footer>
       </article>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(article).replace(/</g, "\\u003c"),
-        }}
-      />
       <SiteFooter />
     </main>
   );

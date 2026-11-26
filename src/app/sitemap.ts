@@ -1,25 +1,13 @@
 import type { MetadataRoute } from "next";
 
 import { getJournalPosts } from "@/app/blog/content";
+import { publicPages } from "@/lib/public-pages";
 import { siteConfig } from "@/lib/site-config";
 
 export const dynamic = "force-static";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const pages = [
-    ["/", 1],
-    ["/about", 0.7],
-    ["/products", 0.8],
-    ["/products/secyourscan", 0.6],
-    ["/products/flagforge", 0.6],
-    ["/products/secyourflow", 0.6],
-    ["/products/safe", 0.6],
-    ["/contact", 0.6],
-    ["/privacy", 0.3],
-    ["/terms", 0.3],
-    ["/blog", 0.6],
-  ] as const;
-  const staticPages: MetadataRoute.Sitemap = pages.map(([path, priority]) => ({
+  const staticPages: MetadataRoute.Sitemap = publicPages.map(([path, priority]) => ({
     url: `${siteConfig.url}${path}`,
     changeFrequency: "monthly",
     priority,

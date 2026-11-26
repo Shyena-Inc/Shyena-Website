@@ -1,8 +1,9 @@
 "use client";
 
-import { useState, useSyncExternalStore } from "react";
+import { useRef, useState, useSyncExternalStore } from "react";
 import { SendIcon } from "lucide-react";
 
+import { trackWebsiteEvent } from "@/components/company/website-analytics";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
@@ -30,6 +31,7 @@ const requestedTopic = () => {
 };
 
 export function ContactForm() {
+  const submitting = useRef(false);
   const [pending, setPending] = useState(false);
   const [selectedTopic, setSelectedTopic] = useState<string | undefined>();
   const topic = useSyncExternalStore(
@@ -44,6 +46,7 @@ export function ContactForm() {
 
   async function submit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    if (submitting.current) return;
     setStatus(null);
     if (!formId) {
       setStatus({
@@ -54,6 +57,7 @@ export function ContactForm() {
       return;
     }
 
+    submitting.current = true;
     setPending(true);
     const form = event.currentTarget;
     try {
@@ -63,6 +67,7 @@ export function ContactForm() {
         headers: { Accept: "application/json" },
       });
       if (!response.ok) throw new Error("The message could not be sent.");
+      trackWebsiteEvent("generate_lead");
       form.reset();
       setSelectedTopic("");
       setStatus({
@@ -76,6 +81,7 @@ export function ContactForm() {
           "We could not send your message just now. Please email whois@shyenasec.com directly.",
       });
     } finally {
+      submitting.current = false;
       setPending(false);
     }
   }
