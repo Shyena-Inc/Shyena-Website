@@ -36,7 +36,7 @@ export const products = [
     description:
       "Inspect supported AI requests on the device and apply policies to sensitive data.",
     logo: "/safe/safe-logo.png",
-    href: "https://safe-website-flax.vercel.app/",
+    href: "https://safe.shyenasec.com/",
   },
 ] as const;
 export type Product = (typeof products)[number];

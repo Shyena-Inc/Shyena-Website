@@ -9,6 +9,7 @@ import {
 
 import { Button } from "@/components/ui/button";
 import { TextHoverEffect } from "@/components/velora/text-hover-effect";
+import { analyticsContainerId } from "@/lib/analytics-config";
 import { siteConfig } from "@/lib/site-config";
 
 const socialLinks = [
@@ -163,6 +164,11 @@ export function SiteFooter() {
               <Link href="/privacy" className="hover:text-foreground">
                 Privacy
               </Link>
+              {analyticsContainerId && (
+                <Link href="/privacy#analytics" className="hover:text-foreground">
+                  Analytics preferences
+                </Link>
+              )}
               <Link href="/terms" className="hover:text-foreground">
                 Terms
               </Link>

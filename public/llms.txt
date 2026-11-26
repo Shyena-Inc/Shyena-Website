@@ -19,7 +19,7 @@ Page-by-page details are in [llms-full.txt](https://shyenasec.com/llms-full.txt)
 ## Security products
 
 - [FlagForge](https://shyenasec.com/products/flagforge): A public capture-the-flag platform for practicing web security, cryptography, reverse engineering, and forensics at flagforgectf.com.
-- [SAFE](https://shyenasec.com/products/safe): Endpoint AI detection and response. Prompts sent to AI services are checked on the device, and risky ones are stopped before they leave. Details at https://safe-website-flax.vercel.app/.
+- [SAFE](https://shyenasec.com/products/safe): Endpoint AI detection and response. Inspects supported AI requests on protected endpoints and applies an allow, warn, or block policy. Details at https://safe.shyenasec.com/.
 - [SecYourScan](https://shyenasec.com/products/secyourscan): Breach and exposure monitoring, public email/domain checks, and a breach directory at https://secyourscan.shyenasec.com.
 - [SecYourFlow](https://shyenasec.com/products/secyourflow): Self-hosted cyber risk workspace for assets, vulnerabilities, risk, suppliers, BIA, and NIS2. Visit https://secyourflow.shyenasec.com.
 

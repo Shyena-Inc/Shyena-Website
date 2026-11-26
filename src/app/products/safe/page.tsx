@@ -1,3 +1,4 @@
+import { productBySlug } from "@/lib/products";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -32,7 +33,7 @@ export const metadata: Metadata = pageMetadata({
   path: "/products/safe",
 });
 
-const safeWebsite = "https://safe-website-flax.vercel.app/";
+const safeWebsite = productBySlug("safe").href;
 
 const steps = [
   {

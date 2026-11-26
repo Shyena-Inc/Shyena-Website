@@ -46,18 +46,21 @@ const services = [
   {
     id: "service-hardware-vapt",
     name: "Hardware VAPT",
+    article: { href: "/blog/hardware-vapt-review", label: "What a hardware VAPT can cover" },
     href: "/contact?topic=Hardware%20VAPT",
     icon: <CpuIcon />,
   },
   {
     id: "service-ot-ics",
     name: "OT / ICS assessment",
+    article: { href: "/blog/ot-security-assessment-scope", label: "How to scope an OT assessment" },
     href: "/contact?topic=OT%20%2F%20ICS%20assessment",
     icon: <FactoryIcon />,
   },
   {
     id: "service-iot-security",
     name: "IoT security testing",
+    article: { href: "/blog/iot-device-security-review", label: "What an IoT device review covers" },
     href: "/contact?topic=IoT%20security%20testing",
     icon: <NetworkIcon />,
   },
@@ -123,19 +126,7 @@ const faqs = [
 export default function HomePage() {
   return (
     <main className="relative overflow-hidden">
-      <JsonLd
-        data={[
-          { ...publisher, "@type": "Organization", name: siteConfig.name },
-          {
-            "@type": "FAQPage",
-            mainEntity: faqs.map((faq) => ({
-              "@type": "Question",
-              name: faq.question,
-              acceptedAnswer: { "@type": "Answer", text: faq.answer },
-            })),
-          },
-        ]}
-      />
+      <JsonLd data={publisher} />
       <SiteHeader />
 
       <section className="relative isolate overflow-hidden border-b border-border/70 pt-24 pb-10 sm:pt-28 md:pb-14 lg:pt-28">
@@ -262,15 +253,20 @@ export default function HomePage() {
             </div>
             <div className="mt-6 grid gap-x-8 sm:grid-cols-2 lg:grid-cols-3">
               {services.map((service) => (
-                <Link
-                  key={service.id}
-                  id={service.id}
-                  href={service.href}
-                  className="group flex scroll-mt-32 items-center justify-between gap-4 border-b border-border py-4 text-sm font-medium hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
-                >
-                  <span className="flex items-center gap-3"><span aria-hidden="true" className="[&_svg]:size-4 [&_svg]:text-primary">{service.icon}</span>{service.name}</span>
-                  <ArrowRightIcon aria-hidden="true" className="size-4 shrink-0 transition-transform group-hover:translate-x-0.5 motion-reduce:transition-none" />
-                </Link>
+                <div key={service.id} id={service.id} className="scroll-mt-32 border-b border-border">
+                  <Link
+                    href={service.href}
+                    className="group flex items-center justify-between gap-4 py-4 text-sm font-medium hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+                  >
+                    <span className="flex items-center gap-3"><span aria-hidden="true" className="[&_svg]:size-4 [&_svg]:text-primary">{service.icon}</span>{service.name}</span>
+                    <ArrowRightIcon aria-hidden="true" className="size-4 shrink-0 transition-transform group-hover:translate-x-0.5 motion-reduce:transition-none" />
+                  </Link>
+                  {service.article && (
+                    <Link href={service.article.href} className="mb-4 inline-block text-sm text-muted-foreground underline underline-offset-4 hover:text-foreground">
+                      {service.article.label}
+                    </Link>
+                  )}
+                </div>
               ))}
             </div>
           </div>

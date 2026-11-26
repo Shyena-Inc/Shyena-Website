@@ -3,6 +3,9 @@ import type { Metadata } from "next";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { PageHeader } from "@/components/page-header";
+import { AnalyticsPreferences } from "@/components/company/website-analytics";
+import { analyticsContainerId } from "@/lib/analytics-config";
+import { siteConfig } from "@/lib/site-config";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
@@ -31,10 +34,11 @@ export default function PrivacyPage() {
           <p className="leading-7">When you contact us, you may provide your name, email address, inquiry topic, and message. We use this information to respond to your inquiry and follow up on the matter you raise. Please do not include passwords, access tokens, or other secrets.</p>
           <p className="leading-7">When the contact form is configured, submissions are sent through Formspree. If it is unavailable, you can contact us by email.</p>
         </section>
-        <section className="space-y-3">
+        <section id="analytics" className="scroll-mt-28 space-y-3">
           <h2 className="text-xl font-semibold text-foreground">Technical data, cookies, and analytics</h2>
           <p className="leading-7">The website stores your theme preference in your browser. Hosting and network providers may process technical information, such as IP addresses and request logs, to deliver and operate the site.</p>
-          <p className="leading-7">If enabled, Google Analytics collects information about use of the website, such as pages visited and device or browser information. Google may use cookies or similar technologies. You can control cookies through your browser settings.</p>
+          <p className="leading-7">If you allow analytics cookies, Google Analytics measures page visits, product link clicks, and completed inquiries. Your contact form details stay out of analytics. You can change your choice here when analytics is available.</p>
+          {analyticsContainerId && <AnalyticsPreferences origin={siteConfig.url} />}
         </section>
         <section className="space-y-3">
           <h2 className="text-xl font-semibold text-foreground">Service providers and international transfers</h2>

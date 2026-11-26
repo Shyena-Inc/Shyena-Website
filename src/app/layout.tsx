@@ -1,8 +1,11 @@
 import type { Metadata, Viewport } from "next";
-import Script from "next/script";
 import { IBM_Plex_Mono, IBM_Plex_Sans } from "next/font/google";
 import "./globals.css";
 
+import { getJournalPosts } from "@/app/blog/content";
+import { WebsiteAnalytics } from "@/components/company/website-analytics";
+import { analyticsContainerId } from "@/lib/analytics-config";
+import { publicPages } from "@/lib/public-pages";
 import { ThemeProvider } from "@/components/theme-provider";
 import { siteConfig } from "@/lib/site-config";
 
@@ -16,9 +19,6 @@ const plexMono = IBM_Plex_Mono({
   weight: "400",
   subsets: ["latin"],
 });
-
-const analyticsId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
-const validAnalyticsId = analyticsId && /^G-[A-Z0-9]+$/.test(analyticsId);
 
 export const viewport: Viewport = {
   themeColor: [
@@ -60,11 +60,15 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const paths = analyticsContainerId
+    ? [...publicPages.map(([path]) => path), ...(await getJournalPosts()).map(({ slug }) => `/blog/${slug}`)]
+    : [];
+
   return (
     <html
       lang="en"
@@ -81,17 +85,8 @@ export default function RootLayout({
         >
           {children}
         </ThemeProvider>
-        {validAnalyticsId && (
-          <>
-            <Script
-              async
-              src={`https://www.googletagmanager.com/gtag/js?id=${analyticsId}`}
-              strategy="afterInteractive"
-            />
-            <Script id="google-analytics" strategy="afterInteractive">
-              {`window.dataLayer = window.dataLayer || []; function gtag(){window.dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', '${analyticsId}');`}
-            </Script>
-          </>
+        {analyticsContainerId && (
+          <WebsiteAnalytics containerId={analyticsContainerId} origin={siteConfig.url} paths={paths} />
         )}
       </body>
     </html>
